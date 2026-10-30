@@ -11,9 +11,9 @@ function Building({position=[0,0,0],color='#b8dcf4',label='LAB',height=4}){
  return <group position={position}>
   <mesh position={[0,height/2,0]} castShadow receiveShadow><boxGeometry args={[5,height,4]}/><meshStandardMaterial color={color} roughness={.78}/></mesh>
   <mesh position={[0,height+.18,0]}><boxGeometry args={[5.3,.35,4.3]}/><meshStandardMaterial color="#f6d66b"/></mesh>
-  {[-1.5,0,1.5].map((x,i)=><mesh key={i} position={[x,2,-2.02]}><boxGeometry args={[.85,1.1,.08]}/><meshStandardMaterial color="#54c7f5" emissive="#1b6b9b" emissiveIntensity={.35}/></mesh>)}
-  <mesh position={[0,height+.8,-2.08]}><boxGeometry args={[3.8,.75,.12]}/><meshStandardMaterial color={NAVY}/></mesh>
-  <Text position={[0,height+.8,-2.16]} fontSize={.27} color="white" anchorX="center" anchorY="middle">{label}</Text>
+  {[-1.5,0,1.5].map((x,i)=><mesh key={i} position={[x,2,2.02]}><boxGeometry args={[.85,1.1,.08]}/><meshStandardMaterial color="#54c7f5" emissive="#1b6b9b" emissiveIntensity={.35}/></mesh>)}
+  <mesh position={[0,height+.8,2.08]}><boxGeometry args={[3.8,.75,.12]}/><meshStandardMaterial color={NAVY}/></mesh>
+  <Text position={[0,height+.8,2.16]} fontSize={.27} color="white" anchorX="center" anchorY="middle">{label}</Text>
  </group>
 }
 function Tree({position}){return <group position={position}><mesh position={[0,.8,0]} castShadow><cylinderGeometry args={[.18,.25,1.6,8]}/><meshStandardMaterial color="#98613e"/></mesh><mesh position={[0,2,0]} castShadow><icosahedronGeometry args={[1.05,1]}/><meshStandardMaterial color="#49a86e" roughness={1}/></mesh></group>}
@@ -49,7 +49,7 @@ function Nobita({moving=false,driving=false}) {
   <mesh position={[.2,.4,0]}><capsuleGeometry args={[.13,.5,6,10]}/><meshStandardMaterial color="#315ca5"/></mesh><mesh position={[.2,.12,.12]} scale={[1.2,.4,1.5]}><sphereGeometry args={[.18,16,12]}/><meshStandardMaterial color="white"/></mesh>
  </group>
 }
-function MiniCar({position}){const wheels=useRef([]);useFrame((_,delta)=>wheels.current.forEach(w=>{if(w)w.rotation.x+=delta*5}));return <group position={position}><mesh position={[0,.55,0]} castShadow><boxGeometry args={[3,.65,1.7]}/><meshStandardMaterial color="#f6d24b" metalness={0.25}/></mesh><mesh position={[0,1.05,-.1]}><boxGeometry args={[1.45,.65,1.45]}/><meshStandardMaterial color="#a9e4f8" transparent opacity={.75}/></mesh>{[-1,1].flatMap(x=>[-.58,.58].map((z,i)=><mesh key={x+':'+z} ref={el=>wheels.current.push(el)} position={[x,.25,z]} rotation={[Math.PI/2,0,0]}><cylinderGeometry args={[.32,.32,.2,20]}/><meshStandardMaterial color="#26364d"/></mesh>))}</group>}
+function MiniCar({position}){const wheels=useRef([]);useFrame((_,delta)=>wheels.current.forEach(w=>{if(w)w.rotation.x+=delta*5}));return <group position={position}><mesh position={[0,.55,0]} castShadow><boxGeometry args={[3,.65,1.7]}/><meshStandardMaterial color="#f6d24b" metalness={0.25}/></mesh><mesh position={[0,1.05,-.1]}><boxGeometry args={[1.45,.65,1.45]}/><meshStandardMaterial color="#a9e4f8" transparent opacity={.75}/></mesh>{[-1,1].flatMap(x=>[-.58,.58].map((z,i)=><mesh key={x+':'+z} ref={el=>{if(el)wheels.current[(x===-1?0:2)+i]=el}} position={[x,.25,z]} rotation={[Math.PI/2,0,0]}><cylinderGeometry args={[.32,.32,.2,20]}/><meshStandardMaterial color="#26364d"/></mesh>))}</group>}
 function World({activeZone,setActiveZone,vehicle,setVehicle,walking,setWalking,onDialogue}) {
  const player=useRef(),keys=useRef({}),moving=useRef(false),[near,setNear]=useState(null);
  useEffect(()=>{const down=e=>{keys.current[e.key.toLowerCase()]=true;if(['arrowup','arrowdown','arrowleft','arrowright',' '].includes(e.key.toLowerCase()))e.preventDefault();if(e.key.toLowerCase()==='v')setVehicle(v=>!v);if(e.key.toLowerCase()==='e'&&near){setActiveZone(near.id);onDialogue(near.dialogue)}};const up=e=>keys.current[e.key.toLowerCase()]=false;window.addEventListener('keydown',down);window.addEventListener('keyup',up);return()=>{window.removeEventListener('keydown',down);window.removeEventListener('keyup',up)}},[near,setVehicle,setActiveZone,onDialogue]);
