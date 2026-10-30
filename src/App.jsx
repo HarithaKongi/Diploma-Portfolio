@@ -20,7 +20,7 @@ function Tree({position}){return <group position={position}><mesh position={[0,.
 function Mimo({moving=false,driving=false}) {
  const root=useRef(),arm=useRef(),leg=useRef();
  useFrame(({clock})=>{const t=clock.elapsedTime;if(root.current)root.current.position.y=Math.sin(t*4.5)*.045*(moving?1.8:1);if(arm.current)arm.current.rotation.z=Math.sin(t*(moving?8:1.8))*.22;if(leg.current)leg.current.rotation.x=moving?Math.sin(t*9)*.38:0});
- return <group ref={root} scale={driving?.72:1}>
+ return <group ref={root} scale={driving ? 0.72 : 1}>
   <mesh position={[0,1.12,0]} castShadow><capsuleGeometry args={[.53,.72,8,18]}/><meshStandardMaterial color="#46b8aa" roughness={.48}/></mesh>
   <mesh position={[0,2.18,0]} castShadow><sphereGeometry args={[.68,32,24]}/><meshStandardMaterial color="#74d5c8" roughness={.4}/></mesh>
   <mesh position={[0,2.08,.48]} scale={[.82,.68,.34]}><sphereGeometry args={[.62,28,20]}/><meshStandardMaterial color="#f8f1df" roughness={.72}/></mesh>
@@ -40,7 +40,7 @@ function Mimo({moving=false,driving=false}) {
 function Nori({moving=false,driving=false}) {
  const root=useRef(),arm=useRef(),legs=useRef();
  useFrame(({clock})=>{const t=clock.elapsedTime;if(root.current)root.current.position.y=Math.sin(t*4.8+.5)*.035*(moving?2:1);if(arm.current)arm.current.rotation.z=Math.sin(t*(moving?8:1.8)+1)*.2;if(legs.current)legs.current.rotation.x=moving?Math.sin(t*9+1)*.4:0});
- return <group ref={root} position={[1.48,0,0]} scale={driving?.72:1}>
+ return <group ref={root} position={[1.48,0,0]} scale={driving ? 0.72 : 1}>
   <mesh position={[0,1.02,0]} castShadow><capsuleGeometry args={[.39,.65,8,14]}/><meshStandardMaterial color="#e6a94e" roughness={.78}/></mesh>
   <mesh position={[0,1.91,0]} castShadow><sphereGeometry args={[.5,28,22]}/><meshStandardMaterial color="#e9b994" roughness={.9}/></mesh>
   <mesh position={[0,2.25,-.04]} scale={[1,.38,.9]}><sphereGeometry args={[.51,22,16]}/><meshStandardMaterial color="#303b4b" roughness={.9}/></mesh>
