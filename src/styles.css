@@ -90,3 +90,7 @@ canvas{touch-action:none}
 .location-nav button{backdrop-filter:blur(14px)}
 .location-nav button small{color:#6d8795}
 @media(max-width:760px){.location-nav{max-width:150px}.location-nav button{padding:8px}.location-nav button span{font-size:10px}}
+
+/* Interactive bedroom and time-travel adventure scenes */
+.actions button:disabled{opacity:.45;cursor:not-allowed}
+@media(max-width:760px){.bottom-hud .actions{max-width:100%;flex-wrap:wrap}.bottom-hud .actions button{font-size:8px}}
