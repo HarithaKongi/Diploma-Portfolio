@@ -16,10 +16,10 @@ export const projects = [
 {id:"birthday",category:"Selected Personal Projects",name:"Animated Birthday Greeting",summary:"A personalized birthday page with animated balloons, cake, wishes, browser-generated music, and spoken greetings.",tech:["HTML","CSS","JavaScript"],demo:"/projects/birthday-greeting/index.html",source:"https://github.com/HarithaKongi/Diploma-Portfolio/tree/main/projects/birthday-greeting"}
 ];
 export const locations=[
-{id:"welcome",name:"Welcome Plaza",short:"Meet the engineer",position:[0,0,0],dialogue:[["Nori","So this is where our adventure begins?"],["Mimo","Exactly! Let's meet the engineer behind this city!"]]},
-{id:"academy",name:"Education Academy",short:"Education & achievements",position:[-13,0,-12],dialogue:[["Nori","Mimo, where did Haritha learn all these engineering skills?"],["Mimo","Let's visit her Education Academy!"]]},
-{id:"lab",name:"Mini Project Laboratory",short:"Explore diploma projects",position:[13,0,-12],dialogue:[["Nori","So many computers! What are these?"],["Mimo","Each one contains an idea that Haritha turned into a project!"],["Nori","Can I try them?"],["Mimo","Of course! Let's explore!"]]},
-{id:"innovation",name:"Innovation Center",short:"Selected experiments",position:[-13,0,13],dialogue:[["Nori","I never knew student projects could be this interesting!"],["Mimo","Every great invention starts with a small idea!"]]},
-{id:"skills",name:"Technology Park",short:"Skills & tools",position:[13,0,13],dialogue:[["Nori","Mimo, how does Haritha build all these applications?"],["Mimo","With programming, creativity and lots of debugging!"]]},
-{id:"contact",name:"Contact Station",short:"Connect with Haritha",position:[0,0,25],dialogue:[["Nori","That was an amazing adventure!"],["Mimo","And this is only the beginning of Haritha's engineering journey!"]]}
+{id:"welcome",name:"Welcome Plaza",short:"Adventure starting point",position:[0,0,0],dialogue:[["Nori","So this is where our adventure begins?"],["Mimo","Exactly! Let's meet the engineer behind this city!"]]},
+{id:"academy",name:"Engineering School",short:"Education & learning journey",position:[-13,0,-12],dialogue:[["Nori","Mimo, where did Haritha learn all these engineering skills?"],["Mimo","Let's visit her Education Academy!"]]},
+{id:"lab",name:"Invention Laboratory",short:"15 interactive project inventions",position:[13,0,-12],dialogue:[["Nori","So many inventions! What are these?"],["Mimo","Each invention represents a project Haritha built during her learning journey!"],["Nori","Can I try them?"],["Mimo","Of course! Let's explore!"]]},
+{id:"innovation",name:"Technology World",short:"Programming skills & tools",position:[-13,0,13],dialogue:[["Nori","How does Haritha turn all these ideas into working applications?"],["Mimo","With programming skills, creativity, and plenty of debugging!"]]},
+{id:"skills",name:"Achievement Museum",short:"Verified certificates & awards",position:[13,0,13],dialogue:[["Nori","Can we see the certificates behind these achievements?"],["Mimo","This museum is ready for her verified certificates. We will not make up awards!"]]},
+{id:"contact",name:"Communication Portal",short:"Connect with Haritha",position:[0,0,25],dialogue:[["Nori","That was an amazing adventure!"],["Mimo","And this is only the beginning of Haritha's engineering journey!"]]}
 ];
