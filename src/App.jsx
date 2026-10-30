@@ -187,7 +187,7 @@ function App(){
  function beginIntro(){startAudio();playSfx(520);setIntro(true);setIntroPlaying(true);setIntroStep(0);setIntroTitle(false);setSubtitle(null)}
  function skipIntro(){setIntroPlaying(false);setIntro(false);setIntroTitle(false);setSubtitle(null);stopSpeech();playSfx(740)}
  function visitLocation(l){setActiveZone(l.id);setTourTarget(l.position);startDialogue(l.dialogue);playSfx(740)}
- function chooseView(view){setActiveView(view);setShowAllProjects(view==="Projects");setSelectedProject(null);playSfx(600);if(view==="Home"){setActiveZone("welcome");setTourTarget([0,0,4])}else if(view==="Education")visitLocation(locations[1]);else if(view==="Projects")visitLocation(locations[2]);else if(view==="Skills")visitLocation(locations[4]);else if(view==="Contact")visitLocation(locations[5])}
+ function chooseView(view){setActiveView(view);setShowAllProjects(view==="Projects");setSelectedProject(null);playSfx(600);if(view==="Home"||view==="About"){setActiveZone("welcome");setTourTarget([0,0,4])}else if(view==="Education")visitLocation(locations[1]);else if(view==="Projects")visitLocation(locations[2]);else if(view==="Skills")visitLocation(locations[4]);else if(view==="Contact")visitLocation(locations[5])}
  const introLine=introStep<opening.length?opening[introStep]:null;
  return <div className="app-shell">
   <Canvas shadows dpr={quality?[1,1.6]:[1,1.15]} camera={{position:[0,34,48],fov:48}} fallback={<div className="webgl-fallback"><h2>3D mode is unavailable</h2><p>Your browser or device could not initialize WebGL. Open the preserved traditional portfolio instead.</p><a href="/legacy/index.html">Open traditional portfolio ↗</a></div>}>
