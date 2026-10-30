@@ -17,38 +17,83 @@ function Building({position=[0,0,0],color='#b8dcf4',label='LAB',height=4}){
  </group>
 }
 function Tree({position}){return <group position={position}><mesh position={[0,.8,0]} castShadow><cylinderGeometry args={[.18,.25,1.6,8]}/><meshStandardMaterial color="#98613e"/></mesh><mesh position={[0,2,0]} castShadow><icosahedronGeometry args={[1.05,1]}/><meshStandardMaterial color="#49a86e" roughness={1}/></mesh></group>}
-function Doraemon({moving=false,driving=false}) {
+function Mimo({moving=false,driving=false}) {
  const root=useRef(),arm=useRef(),leg=useRef();
- useFrame(({clock})=>{const t=clock.elapsedTime; if(root.current)root.current.position.y=Math.sin(t*5)*.045*(moving?1.8:1);if(arm.current)arm.current.rotation.z=Math.sin(t*(moving?9:2))*.25;if(leg.current)leg.current.rotation.x=moving?Math.sin(t*10)*.45:0});
- return <group ref={root} scale={driving ? 0.72 : 1}>
-  <mesh position={[0,1.05,0]} castShadow><capsuleGeometry args={[.58,.78,8,16]}/><meshStandardMaterial color="#168de2"/></mesh>
-  <mesh position={[0,2.15,0]} castShadow><sphereGeometry args={[.72,32,24]}/><meshStandardMaterial color="#168de2"/></mesh>
-  <mesh position={[0,2.04,.48]} scale={[.88,.72,.35]}><sphereGeometry args={[.66,32,24]}/><meshStandardMaterial color="white"/></mesh>
-  <mesh position={[-.23,2.27,.77]}><sphereGeometry args={[.105,20,16]}/><meshStandardMaterial color="white"/></mesh><mesh position={[.23,2.27,.77]}><sphereGeometry args={[.105,20,16]}/><meshStandardMaterial color="white"/></mesh>
-  <mesh position={[-.21,2.27,.86]}><sphereGeometry args={[.045,16,12]}/><meshStandardMaterial color="#101c2c"/></mesh><mesh position={[.21,2.27,.86]}><sphereGeometry args={[.045,16,12]}/><meshStandardMaterial color="#101c2c"/></mesh>
-  <mesh position={[0,2.04,.88]}><sphereGeometry args={[.12,20,16]}/><meshStandardMaterial color="#ed4545"/></mesh>
-  <mesh position={[0,1.82,.8]}><torusGeometry args={[.22,.018,8,32,Math.PI]}/><meshStandardMaterial color="#333"/></mesh>
-  <mesh position={[0,1.08,.55]}><torusGeometry args={[.34,.07,10,32]}/><meshStandardMaterial color="#f4c842"/></mesh><mesh position={[0,1.08,.62]}><sphereGeometry args={[.11,16,12]}/><meshStandardMaterial color="#e9a923"/></mesh>
-  <group ref={arm} position={[-.55,1.45,0]}><mesh rotation={[0,0,.65]}><capsuleGeometry args={[.16,.48,6,10]}/><meshStandardMaterial color="#168de2"/></mesh></group>
-  <group ref={leg} position={[-.27,.43,0]}><mesh><capsuleGeometry args={[.18,.52,6,10]}/><meshStandardMaterial color="#168de2"/></mesh><mesh position={[0,-.3,.12]} scale={[1.2,.45,1.5]}><sphereGeometry args={[.22,16,12]}/><meshStandardMaterial color="white"/></mesh></group>
-  <group position={[.3,.45,0]}><mesh><capsuleGeometry args={[.18,.52,6,10]}/><meshStandardMaterial color="#168de2"/></mesh><mesh position={[0,-.3,.12]} scale={[1.2,.45,1.5]}><sphereGeometry args={[.22,16,12]}/><meshStandardMaterial color="white"/></mesh></group>
+ useFrame(({clock})=>{const t=clock.elapsedTime;if(root.current)root.current.position.y=Math.sin(t*4.5)*.045*(moving?1.8:1);if(arm.current)arm.current.rotation.z=Math.sin(t*(moving?8:1.8))*.22;if(leg.current)leg.current.rotation.x=moving?Math.sin(t*9)*.38:0});
+ return <group ref={root} scale={driving?.72:1}>
+  <mesh position={[0,1.12,0]} castShadow><capsuleGeometry args={[.53,.72,8,18]}/><meshStandardMaterial color="#46b8aa" roughness={.48}/></mesh>
+  <mesh position={[0,2.18,0]} castShadow><sphereGeometry args={[.68,32,24]}/><meshStandardMaterial color="#74d5c8" roughness={.4}/></mesh>
+  <mesh position={[0,2.08,.48]} scale={[.82,.68,.34]}><sphereGeometry args={[.62,28,20]}/><meshStandardMaterial color="#f8f1df" roughness={.72}/></mesh>
+  <mesh position={[-.22,2.26,.77]}><sphereGeometry args={[.105,20,16]}/><meshStandardMaterial color="white"/></mesh><mesh position={[.22,2.26,.77]}><sphereGeometry args={[.105,20,16]}/><meshStandardMaterial color="white"/></mesh>
+  <mesh position={[-.2,2.26,.86]}><sphereGeometry args={[.043,16,12]}/><meshStandardMaterial color="#203b48"/></mesh><mesh position={[.2,2.26,.86]}><sphereGeometry args={[.043,16,12]}/><meshStandardMaterial color="#203b48"/></mesh>
+  <mesh position={[0,2.04,.84]}><sphereGeometry args={[.075,16,12]}/><meshStandardMaterial color="#ed876c"/></mesh>
+  <mesh position={[0,1.9,.79]} rotation={[0,0,Math.PI]}><torusGeometry args={[.16,.018,8,24,Math.PI]}/><meshStandardMaterial color="#52636a"/></mesh>
+  <mesh position={[-.63,2.14,0]}><sphereGeometry args={[.19,20,16]}/><meshStandardMaterial color="#f5a36e"/></mesh><mesh position={[.63,2.14,0]}><sphereGeometry args={[.19,20,16]}/><meshStandardMaterial color="#f5a36e"/></mesh>
+  <mesh position={[0,2.82,0]}><cylinderGeometry args={[.035,.045,.38,10]}/><meshStandardMaterial color="#eaa95c" metalness={.25}/></mesh><mesh position={[0,3.03,0]}><sphereGeometry args={[.11,16,12]}/><meshStandardMaterial color="#f4b75e" emissive="#a85d22" emissiveIntensity={.2}/></mesh>
+  <mesh position={[0,1.48,.52]}><torusGeometry args={[.3,.055,10,32]}/><meshStandardMaterial color="#e58c68"/></mesh>
+  <mesh position={[0,1.15,.56]}><boxGeometry args={[.42,.23,.12]}/><meshStandardMaterial color="#f5c76e" metalness={.2}/></mesh>
+  <group ref={arm} position={[-.5,1.48,0]}><mesh rotation={[0,0,.58]}><capsuleGeometry args={[.14,.42,6,10]}/><meshStandardMaterial color="#74d5c8"/></mesh><mesh position={[-.16,-.25,.03]}><sphereGeometry args={[.16,14,12]}/><meshStandardMaterial color="#f8f1df"/></mesh></group>
+  <group ref={leg} position={[-.24,.48,0]}><mesh><capsuleGeometry args={[.15,.45,6,10]}/><meshStandardMaterial color="#46b8aa"/></mesh><mesh position={[0,-.28,.12]} scale={[1.2,.42,1.45]}><sphereGeometry args={[.2,16,12]}/><meshStandardMaterial color="#f8f1df"/></mesh></group>
+  <group position={[.24,.48,0]}><mesh><capsuleGeometry args={[.15,.45,6,10]}/><meshStandardMaterial color="#46b8aa"/></mesh><mesh position={[0,-.28,.12]} scale={[1.2,.42,1.45]}><sphereGeometry args={[.2,16,12]}/><meshStandardMaterial color="#f8f1df"/></mesh></group>
  </group>
 }
-function Nobita({moving=false,driving=false}) {
+function Nori({moving=false,driving=false}) {
  const root=useRef(),arm=useRef(),legs=useRef();
- useFrame(({clock})=>{const t=clock.elapsedTime;if(root.current)root.current.position.y=Math.sin(t*5+.5)*.04*(moving?2:1);if(arm.current)arm.current.rotation.z=Math.sin(t*(moving?9:2)+1)*.22;if(legs.current)legs.current.rotation.x=moving?Math.sin(t*10+1)*.42:0});
- return <group ref={root} position={[1.55,0,0]} scale={driving ? 0.72 : 1}>
-  <mesh position={[0,1.03,0]} castShadow><capsuleGeometry args={[.4,.65,8,14]}/><meshStandardMaterial color="#f2c743"/></mesh>
-  <mesh position={[0,1.9,0]} castShadow><sphereGeometry args={[.52,24,20]}/><meshStandardMaterial color="#f1c49d"/></mesh>
-  <mesh position={[0,2.3,-.02]} scale={[1,.48,.9]}><sphereGeometry args={[.52,20,16]}/><meshStandardMaterial color="#292b35"/></mesh>
-  <mesh position={[-.18,1.96,.43]}><sphereGeometry args={[.055,16,12]}/><meshStandardMaterial color="#171717"/></mesh><mesh position={[.18,1.96,.43]}><sphereGeometry args={[.055,16,12]}/><meshStandardMaterial color="#171717"/></mesh>
-  {[-.18,.18].map(x=><mesh key={x} position={[x,1.99,.46]}><torusGeometry args={[.12,.025,8,24]}/><meshStandardMaterial color="#343b49"/></mesh>)}
-  <mesh position={[0,1.79,.47]}><sphereGeometry args={[.055,12,8]}/><meshStandardMaterial color="#d87969"/></mesh>
-  <group ref={arm} position={[-.4,1.3,0]}><mesh rotation={[0,0,.55]}><capsuleGeometry args={[.12,.4,6,10]}/><meshStandardMaterial color="#f1c49d"/></mesh></group>
-  <group ref={legs} position={[-.2,.4,0]}><mesh><capsuleGeometry args={[.13,.5,6,10]}/><meshStandardMaterial color="#315ca5"/></mesh><mesh position={[0,-.28,.12]} scale={[1.2,.4,1.5]}><sphereGeometry args={[.18,16,12]}/><meshStandardMaterial color="white"/></mesh></group>
-  <mesh position={[.2,.4,0]}><capsuleGeometry args={[.13,.5,6,10]}/><meshStandardMaterial color="#315ca5"/></mesh><mesh position={[.2,.12,.12]} scale={[1.2,.4,1.5]}><sphereGeometry args={[.18,16,12]}/><meshStandardMaterial color="white"/></mesh>
+ useFrame(({clock})=>{const t=clock.elapsedTime;if(root.current)root.current.position.y=Math.sin(t*4.8+.5)*.035*(moving?2:1);if(arm.current)arm.current.rotation.z=Math.sin(t*(moving?8:1.8)+1)*.2;if(legs.current)legs.current.rotation.x=moving?Math.sin(t*9+1)*.4:0});
+ return <group ref={root} position={[1.48,0,0]} scale={driving?.72:1}>
+  <mesh position={[0,1.02,0]} castShadow><capsuleGeometry args={[.39,.65,8,14]}/><meshStandardMaterial color="#e6a94e" roughness={.78}/></mesh>
+  <mesh position={[0,1.91,0]} castShadow><sphereGeometry args={[.5,28,22]}/><meshStandardMaterial color="#e9b994" roughness={.9}/></mesh>
+  <mesh position={[0,2.25,-.04]} scale={[1,.38,.9]}><sphereGeometry args={[.51,22,16]}/><meshStandardMaterial color="#303b4b" roughness={.9}/></mesh>
+  {[-.32,-.15,0,.17,.34].map((x,i)=><mesh key={i} position={[x,2.28,.27]} rotation={[0,0,(i-2)*-.22]}><coneGeometry args={[.13,.32,7]}/><meshStandardMaterial color="#303b4b"/></mesh>)}
+  <mesh position={[-.17,1.96,.43]}><sphereGeometry args={[.05,14,12]}/><meshStandardMaterial color="#172b3c"/></mesh><mesh position={[.17,1.96,.43]}><sphereGeometry args={[.05,14,12]}/><meshStandardMaterial color="#172b3c"/></mesh>
+  {[-.17,.17].map(x=><mesh key={x} position={[x,1.98,.46]}><torusGeometry args={[.115,.022,8,24]}/><meshStandardMaterial color="#3b566e" metalness={.4}/></mesh>)}
+  <mesh position={[0,1.78,.46]}><sphereGeometry args={[.045,12,8]}/><meshStandardMaterial color="#c97869"/></mesh>
+  <mesh position={[0,1.02,.42]}><boxGeometry args={[.42,.22,.08]}/><meshStandardMaterial color="#6a9cce"/></mesh>
+  <group ref={arm} position={[-.4,1.3,0]}><mesh rotation={[0,0,.55]}><capsuleGeometry args={[.12,.4,6,10]}/><meshStandardMaterial color="#e9b994"/></mesh></group>
+  <group ref={legs} position={[-.2,.4,0]}><mesh><capsuleGeometry args={[.13,.5,6,10]}/><meshStandardMaterial color="#344c70"/></mesh><mesh position={[0,-.28,.12]} scale={[1.2,.4,1.5]}><sphereGeometry args={[.18,16,12]}/><meshStandardMaterial color="#f7f3e9"/></mesh></group>
+  <mesh position={[.2,.4,0]}><capsuleGeometry args={[.13,.5,6,10]}/><meshStandardMaterial color="#344c70"/></mesh><mesh position={[.2,.12,.12]} scale={[1.2,.4,1.5]}><sphereGeometry args={[.18,16,12]}/><meshStandardMaterial color="#f7f3e9"/></mesh>
+  <group position={[.34,1.12,-.18]}><mesh rotation={[0,0,-.12]}><boxGeometry args={[.34,.52,.2]}/><meshStandardMaterial color="#8a6a9e"/></mesh><mesh position={[0,.12,.11]}><boxGeometry args={[.22,.08,.03]}/><meshStandardMaterial color="#f2d7a1"/></mesh></group>
  </group>
 }
+function JapaneseHouse({position,wall="#f2e4cd",roof="#536c80",accent="#b85d4c",label="HOME"}) {
+ return <group position={position}>
+  <mesh position={[0,1.65,0]} castShadow receiveShadow><boxGeometry args={[6,3.3,5]}/><meshStandardMaterial color={wall} roughness={.9}/></mesh>
+  <mesh position={[0,3.48,0]} rotation={[0,0,0]} castShadow><coneGeometry args={[4.35,1.35,4,1]} /><meshStandardMaterial color={roof} roughness={.82}/></mesh>
+  <mesh position={[0,1.15,2.54]}><boxGeometry args={[1.15,2.3,.12]}/><meshStandardMaterial color="#765747"/></mesh>
+  <mesh position={[-1.8,2.05,2.55]}><boxGeometry args={[1.15,.9,.12]}/><meshStandardMaterial color="#9bd5e5" emissive="#4c8291" emissiveIntensity={.12}/></mesh>
+  <mesh position={[1.8,2.05,2.55]}><boxGeometry args={[1.15,.9,.12]}/><meshStandardMaterial color="#9bd5e5" emissive="#4c8291" emissiveIntensity={.12}/></mesh>
+  {[-1.8,1.8].map(x=><group key={x} position={[x,2.05,2.64]}><mesh><boxGeometry args={[1.28,.09,.1]}/><meshStandardMaterial color="#fff4df"/></mesh><mesh rotation={[0,0,Math.PI/2]}><boxGeometry args={[.82,.07,.1]}/><meshStandardMaterial color="#fff4df"/></mesh></group>)}
+  <mesh position={[0,.12,2.7]}><boxGeometry args={[6,.2,.55]}/><meshStandardMaterial color="#b8a38a"/></mesh>
+  <mesh position={[0,3.06,2.62]}><boxGeometry args={[1.6,.34,.12]}/><meshStandardMaterial color={accent}/></mesh>
+  <Text position={[0,3.07,2.71]} fontSize={.15} color="white" anchorX="center">{label}</Text>
+  <mesh position={[0,4.13,0]}><boxGeometry args={[6.5,.18,5.5]}/><meshStandardMaterial color={roof}/></mesh>
+  <mesh position={[3.15,1.2,1.2]}><boxGeometry args={[.22,2.2,.22]}/><meshStandardMaterial color="#8c735c"/></mesh>
+  <mesh position={[3.15,2.25,1.2]}><boxGeometry args={[.22,.16,1.7]}/><meshStandardMaterial color="#8c735c"/></mesh>
+ </group>
+}
+function VendingMachine({position}) {
+ const colors=["#e45e58","#e7bd53","#5d9eaf"];
+ return <group position={position}>
+  <mesh position={[0,1.15,0]} castShadow><boxGeometry args={[1.25,2.3,.78]}/><meshStandardMaterial color="#f4f0e8" roughness={.45}/></mesh>
+  <mesh position={[0,1.48,.41]}><boxGeometry args={[1.02,1.05,.035]}/><meshStandardMaterial color="#a8d7e7" metalness={.12}/></mesh>
+  {Array.from({length:6},(_,i)=><mesh key={i} position={[-.34+(i%3)*.34,1.75-Math.floor(i/3)*.42,.44]}><cylinderGeometry args={[.11,.11,.22,16]}/><meshStandardMaterial color={colors[i%3]}/></mesh>)}
+  <mesh position={[0,.55,.43]}><boxGeometry args={[.76,.25,.04]}/><meshStandardMaterial color="#34495b"/></mesh>
+  <Text position={[0,2.12,.43]} fontSize={.14} color="#e65c52" anchorX="center">DRINKS</Text>
+ </group>
+}
+function UtilityPole({position}) {
+ return <group position={position}>
+  <mesh position={[0,4,0]}><cylinderGeometry args={[.12,.16,8,8]}/><meshStandardMaterial color="#826d5b"/></mesh>
+  <mesh position={[0,7.35,0]}><boxGeometry args={[2.1,.16,.18]}/><meshStandardMaterial color="#806b58"/></mesh>
+  {[-.72,0,.72].map(x=><mesh key={x} position={[x,7.65,0]}><cylinderGeometry args={[.06,.06,.38,10]}/><meshStandardMaterial color="#594f48"/></mesh>)}
+  <mesh position={[.65,6.1,.1]}><boxGeometry args={[.72,.72,.5]}/><meshStandardMaterial color="#857767"/></mesh>
+ </group>
+}
+function Fence({position,length=5}) {
+ return <group position={position}>{Array.from({length:Math.floor(length/.55)+1},(_,i)=><mesh key={i} position={[-length/2+i*.55,.55,0]}><boxGeometry args={[.1,1.1,.12]}/><meshStandardMaterial color="#f7f0df"/></mesh>)}<mesh position={[0,.22,0]}><boxGeometry args={[length,.1,.14]}/><meshStandardMaterial color="#b85d4c"/></mesh><mesh position={[0,.85,0]}><boxGeometry args={[length,.1,.14]}/><meshStandardMaterial color="#b85d4c"/></mesh></group>
+}
+function Crosswalk({position,rotation=0}) {return <group position={position} rotation={[0,rotation,0]}>{Array.from({length:7},(_,i)=><mesh key={i} position={[-3+i,0,0]} rotation={[-Math.PI/2,0,0]}><planeGeometry args={[.62,3.1]}/><meshStandardMaterial color="#f4f2e9"/></mesh>)}</group>}
+function SakuraTree({position}) {return <group position={position}><mesh position={[0,1.5,0]}><cylinderGeometry args={[.18,.3,3,8]}/><meshStandardMaterial color="#866048"/></mesh>{Array.from({length:9},(_,i)=><mesh key={i} position={[Math.sin(i*2.1)*1.05,2.6+Math.cos(i*1.7)*.6,Math.cos(i*2.1)*.8]}><icosahedronGeometry args={[.75,1]}/><meshStandardMaterial color={i%2?"#f4a8ba":"#f7c1ce"} roughness={1}/></mesh>)}</group>}
 function MiniCar({moving}){const wheels=useRef([]);useFrame((_,delta)=>{if(moving)wheels.current.forEach(w=>{if(w)w.rotation.x+=delta*5})});return <group position={[0,.05,0]}><mesh position={[0,.48,0]} castShadow receiveShadow><boxGeometry args={[3.25,.62,1.95]}/><meshStandardMaterial color="#f6d24b" metalness={.32} roughness={.28}/></mesh><mesh position={[0,.91,-.05]}><boxGeometry args={[1.72,.55,1.65]}/><meshStandardMaterial color="#a9e4f8" transparent opacity={.42} metalness={.18} roughness={.12}/></mesh>{[-1,1].flatMap(x=>[-.68,.68].map((z,i)=><mesh key={x+':'+z} ref={el=>{if(el)wheels.current[(x===-1?0:2)+i]=el}} position={[x,.24,z]} rotation={[Math.PI/2,0,0]}><cylinderGeometry args={[.34,.34,.22,24]}/><meshStandardMaterial color="#26364d" roughness={.85}/></mesh>))}</group>}
 function StreetLight({position}){return <group position={position}><mesh position={[0,2.1,0]}><cylinderGeometry args={[.07,.1,4.2,10]}/><meshStandardMaterial color="#52677d" metalness={.65}/></mesh><mesh position={[.45,4.05,0]} rotation={[0,0,-.2]}><boxGeometry args={[1.05,.12,.16]}/><meshStandardMaterial color="#52677d" metalness={.6}/></mesh><mesh position={[.9,3.92,0]}><sphereGeometry args={[.2,16,12]}/><meshStandardMaterial color="#fff2b8" emissive="#ffdc80" emissiveIntensity={1.6}/></mesh><pointLight position={[.9,3.8,0]} color="#ffe5a6" intensity={.45} distance={7}/></group>}
 function Bench({position}){return <group position={position}><mesh position={[0,.55,0]}><boxGeometry args={[1.8,.16,.55]}/><meshStandardMaterial color="#a66d42"/></mesh>{[-.65,.65].map(x=><mesh key={x} position={[x,.27,0]}><boxGeometry args={[.12,.55,.48]}/><meshStandardMaterial color="#344d65"/></mesh>)}<mesh position={[0,.92,-.22]}><boxGeometry args={[1.8,.65,.12]}/><meshStandardMaterial color="#a66d42"/></mesh></group>}
@@ -93,20 +138,35 @@ let dx=(k.d||k.arrowright?1:0)-(k.a||k.arrowleft?1:0),dz=(k.s||k.arrowdown?1:0)-
  {Array.from({length:8},(_,i)=><Bench key={'bench'+i} position={[-25+(i%4)*16,0,-18+Math.floor(i/4)*36]}/>)}
  {Array.from({length:10},(_,i)=><FlowerPatch key={'flower'+i} position={[-24+(i%5)*12,.05,-22+Math.floor(i/5)*44]}/>)}
  <mesh position={[0,.08,-31]} rotation={[-Math.PI/2,0,0]}><circleGeometry args={[3.4,48]}/><meshStandardMaterial color="#54a9c9" roughness={.2} metalness={.1}/></mesh><mesh position={[0,.16,-31]}><torusGeometry args={[3.3,.12,12,48]}/><meshStandardMaterial color="#f5d36b" metalness={.45}/></mesh>
+
+ {/* Original Japanese neighbourhood details: homes, narrow lanes, utility lines, gardens and everyday street furniture. */}
+ <JapaneseHouse position={[-27,0,-17]} wall="#f0dfc8" roof="#526b83" accent="#b65f51" label="KAZE HOUSE"/>
+ <JapaneseHouse position={[27,0,-18]} wall="#e9d7b8" roof="#6a5c67" accent="#7c9e83" label="MORI HOUSE"/>
+ <JapaneseHouse position={[-28,0,18]} wall="#e7e3d6" roof="#596e7e" accent="#bd8057" label="HANA HOUSE"/>
+ <JapaneseHouse position={[28,0,19]} wall="#f3e6d5" roof="#536c80" accent="#c26c62" label="SORA HOUSE"/>
+ <JapaneseHouse position={[-27,0,2]} wall="#dce8df" roof="#647c75" accent="#c58b5c" label="NEIGHBOURHOOD"/>
+ <JapaneseHouse position={[27,0,3]} wall="#f0dfd0" roof="#5b6d80" accent="#bc695d" label="CORNER HOME"/>
+ <VendingMachine position={[-7,0,-8]}/>
+ <VendingMachine position={[7,0,9]}/>
+ <Crosswalk position={[0,.055,7.4]}/>
+ <Crosswalk position={[-7.4,.055,0]} rotation={Math.PI/2}/>
+ <UtilityPole position={[-18,0,-7]}/><UtilityPole position={[18,0,-7]}/><UtilityPole position={[-18,0,19]}/><UtilityPole position={[18,0,19]}/>
+ <Fence position={[-20,0,-10]} length={8}/><Fence position={[20,0,11]} length={8}/>
+ <SakuraTree position={[-20,0,11]}/><SakuraTree position={[20,0,-13]}/><SakuraTree position={[4,0,-27]}/>
  {introPlaying&&<IntroVehicle stage={introStage}/>}
- <group ref={player} position={[0,0,4]} visible={!introPlaying||introStage>=4}><group position={vehicle?[-.78,.52,.05]:[0,0,0]}><Doraemon moving={isMoving&&!vehicle} driving={vehicle}/></group><group position={vehicle?[-.78,.52,.05]:[0,0,0]}><Nobita moving={moving.current&&!vehicle} driving={vehicle}/></group>{vehicle&&<MiniCar moving={isMoving}/>}</group>
+ <group ref={player} position={[0,0,4]} visible={!introPlaying||introStage>=4}><group position={vehicle?[-.78,.52,.05]:[0,0,0]}><Mimo moving={isMoving&&!vehicle} driving={vehicle}/></group><group position={vehicle?[-.78,.52,.05]:[0,0,0]}><Nori moving={moving.current&&!vehicle} driving={vehicle}/></group>{vehicle&&<MiniCar moving={isMoving}/>}</group>
  {near&&<group position={[near.position[0],.5,near.position[2]+5]}><Float speed={2} floatIntensity={.2}><mesh><sphereGeometry args={[.35,16,16]}/><meshStandardMaterial color="#ffdc5e" emissive="#b17b00" emissiveIntensity={.4}/></mesh></Float></group>}
  <ContactShadows position={[0,-.06,0]} opacity={.25} scale={70} blur={2.5}/>
  <OrbitControls ref={controls} enablePan={false} enableZoom minDistance={8} maxDistance={45} maxPolarAngle={Math.PI/2.05}/>
  </>;
 }
 const opening=[
- ["Nobita","I also want to become an engineer!"],
- ["Doraemon","Then let's see what Haritha has created!"],
- ["Nobita","She built all these projects during her diploma?"],
- ["Doraemon","Yes! Let's learn how she did it!"],
- ["Nobita","Wow! I can't wait to explore!"],
- ["Doraemon","Come on, Nobita! Our adventure begins now!"]
+ ["Nori","I also want to become an engineer!"],
+ ["Mimo","Then let's see what Haritha has created!"],
+ ["Nori","She built all these projects during her diploma?"],
+ ["Mimo","Yes! Let's learn how she did it!"],
+ ["Nori","Wow! I can't wait to explore!"],
+ ["Mimo","Come on, Nori! Our adventure begins now!"]
 ];
 const navItems=["Home","About","Education","Projects","Skills","Contact"];
 function App(){
@@ -125,10 +185,10 @@ function App(){
   window.speechSynthesis.cancel();
   const utterance=new SpeechSynthesisUtterance(line);
   const voices=window.speechSynthesis.getVoices();
-  const preferred=voices.find(v=>speaker==="Doraemon"?/en.*(female|samantha|zira|aria)/i.test(v.name+" "+v.lang):/en.*(male|david|guy|mark)/i.test(v.name+" "+v.lang));
+  const preferred=voices.find(v=>speaker==="Mimo"?/en.*(female|samantha|zira|aria)/i.test(v.name+" "+v.lang):/en.*(male|david|guy|mark)/i.test(v.name+" "+v.lang));
   if(preferred)utterance.voice=preferred;
-  utterance.rate=speaker==="Doraemon" ? 0.94 : 1.06;
-  utterance.pitch=speaker==="Doraemon" ? 0.88 : 1.18;
+  utterance.rate=speaker==="Mimo" ? 0.94 : 1.06;
+  utterance.pitch=speaker==="Mimo" ? 0.88 : 1.18;
   utterance.volume=voiceVol;
   window.speechSynthesis.speak(utterance);
  };
@@ -194,15 +254,15 @@ function App(){
    <World activeZone={activeZone} setActiveZone={setActiveZone} vehicle={vehicle} setVehicle={setVehicle} walking={walking} onDialogue={startDialogue} tourTarget={tourTarget} introPlaying={introPlaying} introStage={introStage}/>
   </Canvas>
   <header className="hud-top cinematic-hud"><a className="brand" href="#" onClick={e=>{e.preventDefault();chooseView("Home")}}>HK<span>✦</span></a><div><small>AN INTERACTIVE PORTFOLIO WORLD</small><strong>HARITHA'S ENGINEERING ADVENTURE</strong></div><nav className="top-nav">{navItems.map(item=><button key={item} className={activeView===item?"active":""} onClick={()=>chooseView(item)}>{item}</button>)}</nav><a className="icon-btn traditional-link" href="/legacy/index.html">Traditional Mode ↗</a><button className="icon-btn" onClick={beginIntro}>Replay intro ↻</button>{introPlaying&&<button className="icon-btn" onClick={skipIntro}>Skip intro</button>}<button className="icon-btn" onClick={()=>setAudioPanel(v=>!v)}>Audio ♪</button><button className="icon-btn" onClick={()=>setShowHelp(true)}>?</button></header>
-  <div className="world-label"><span className="pulse-dot"></span> ENGINEERING CITY <span>•</span> {locations.find(l=>l.id===activeZone)?.name||"Explore"}</div>
+  <div className="world-label"><span className="pulse-dot"></span> KAZE-MACHI NEIGHBOURHOOD <span>•</span> {locations.find(l=>l.id===activeZone)?.name||"Explore"}</div>
   <aside className="location-nav"><small>EXPLORE LOCATIONS</small>{locations.map(l=><button key={l.id} className={activeZone===l.id?"selected":""} onClick={()=>visitLocation(l)}><span>{l.name}</span><small>{l.short}</small></button>)}</aside>
   <div className="mini-map"><span> CITY MAP </span>{locations.map((l,i)=><button key={l.id} title={l.name} className={activeZone===l.id?"active":""} onClick={()=>visitLocation(l)}>{i+1}</button>)}</div>
   <div className="bottom-hud"><div className="movement-hint"><b>WASD / ↑↓←→</b><span>Move</span><b>SHIFT</b><span>Boost</span><b>SPACE</b><span>Brake</span><b>E</b><span>Interact</span><b>V</b><span>Vehicle</span></div><div className="actions"><button onClick={()=>setVehicle(v=>!v)}>{vehicle?"🚶 Walk":"🚙 Drive"}</button><button onClick={()=>setAutoTour(v=>!v)}>{autoTour?"Stop tour":"✦ Auto tour"}</button><button onClick={()=>setQuality(q=>!q)}>{quality?"High quality":"Low graphics"}</button><button onClick={()=>setShowAllProjects(true)}>View all projects</button><button onClick={()=>setShowHelp(true)}>Help</button></div></div>
   <div className="mobile-pad" aria-label="Touch movement controls"><div></div><button onPointerDown={e=>{e.currentTarget.setPointerCapture(e.pointerId);window.dispatchEvent(new KeyboardEvent("keydown",{key:"w"}))}} onPointerUp={()=>window.dispatchEvent(new KeyboardEvent("keyup",{key:"w"}))} onPointerCancel={()=>window.dispatchEvent(new KeyboardEvent("keyup",{key:"w"}))}>▲</button><div></div><button onPointerDown={e=>{e.currentTarget.setPointerCapture(e.pointerId);window.dispatchEvent(new KeyboardEvent("keydown",{key:"a"}))}} onPointerUp={()=>window.dispatchEvent(new KeyboardEvent("keyup",{key:"a"}))} onPointerCancel={()=>window.dispatchEvent(new KeyboardEvent("keyup",{key:"a"}))}>◀</button><button onPointerDown={e=>{e.currentTarget.setPointerCapture(e.pointerId);window.dispatchEvent(new KeyboardEvent("keydown",{key:"s"}))}} onPointerUp={()=>window.dispatchEvent(new KeyboardEvent("keyup",{key:"s"}))} onPointerCancel={()=>window.dispatchEvent(new KeyboardEvent("keyup",{key:"s"}))}>▼</button><button onPointerDown={e=>{e.currentTarget.setPointerCapture(e.pointerId);window.dispatchEvent(new KeyboardEvent("keydown",{key:"d"}))}} onPointerUp={()=>window.dispatchEvent(new KeyboardEvent("keyup",{key:"d"}))} onPointerCancel={()=>window.dispatchEvent(new KeyboardEvent("keyup",{key:"d"}))}>▶</button></div>
   {intro&&<div className="episode-layer">
    {introPlaying&&<div className="episode-vignette"><span>AN ORIGINAL ENGINEERING ADVENTURE</span><div className="episode-progress"><i style={{width:((introStep+1)/7*100)+"%"}}/></div><button onClick={skipIntro}>SKIP INTRO ↗</button></div>}
-   {!introPlaying&&!introTitle&&<div className="episode-card"><span className="episode-kicker">A CINEMATIC MINIATURE-WORLD ADVENTURE</span><h1>DORAEMON & NOBITA</h1><h2>HARITHA'S ENGINEERING ADVENTURE</h2><p>Exploring ideas. Building solutions. Creating possibilities.</p><div className="episode-buttons"><button className="episode-primary" onClick={beginIntro}>▶ PLAY EPISODE</button><button onClick={skipIntro}>SKIP INTRO</button></div><small>Original synthesized soundtrack · Browser-generated dialogue · Subtitles available</small></div>}
-   {introTitle&&<div className="episode-title"><span>AN ADVENTURE BEGINS</span><h1>DORAEMON & NOBITA:<br/>HARITHA'S ENGINEERING ADVENTURE</h1><p>Exploring ideas. Building solutions. Creating possibilities.</p><button className="episode-primary" onClick={skipIntro}>ENTER ADVENTURE →</button><button onClick={beginIntro}>↻ REPLAY INTRO</button></div>}
+   {!introPlaying&&!introTitle&&<div className="episode-card"><span className="episode-kicker">A CINEMATIC MINIATURE-WORLD ADVENTURE</span><h1>MIMO & NORI</h1><h2>HARITHA'S ENGINEERING ADVENTURE</h2><p>Exploring ideas. Building solutions. Creating possibilities.</p><div className="episode-buttons"><button className="episode-primary" onClick={beginIntro}>▶ PLAY EPISODE</button><button onClick={skipIntro}>SKIP INTRO</button></div><small>Original synthesized soundtrack · Browser-generated dialogue · Subtitles available</small></div>}
+   {introTitle&&<div className="episode-title"><span>AN ADVENTURE BEGINS</span><h1>MIMO & NORI:<br/>HARITHA'S ENGINEERING ADVENTURE</h1><p>Exploring ideas. Building solutions. Creating possibilities.</p><button className="episode-primary" onClick={skipIntro}>ENTER ADVENTURE →</button><button onClick={beginIntro}>↻ REPLAY INTRO</button></div>}
    {introPlaying&&introLine&&subtitles&&<div className="episode-subtitle"><b>{introLine[0]}</b><p>“{introLine[1]}”</p></div>}
    <button className="episode-mute" onClick={()=>setMuted(v=>!v)}>{muted?"UNMUTE":"MUTE"} ♪</button>
   </div>}
@@ -211,7 +271,7 @@ function App(){
   {activeView==="About"&&<div className="side-panel about-panel"><button className="close" onClick={()=>setActiveView("Home")}>×</button><small>ABOUT THE ENGINEER</small><h2>Learning by building.</h2><p>I'm Haritha Kongi — a Computer Science student who enjoys turning ideas into useful, interactive web experiences.</p><p>These projects represent my diploma learning journey and practical exploration of web technologies.</p><div className="skill-cloud">{["HTML5","CSS3","JavaScript","Responsive Design","Node.js basics"].map(x=><span key={x}>{x}</span>)}</div><a className="about-link" href="https://www.linkedin.com/in/haritha-kongi/" target="_blank" rel="noreferrer">Connect on LinkedIn ↗</a></div>}
   {activeZone==="welcome"&&<div className="info-chip"><b>WELCOME PLAZA</b><span>Meet Haritha Kongi · Diploma Computer Engineering project collection</span></div>}
   {activeZone==="academy"&&<div className="side-panel"><button className="close" onClick={()=>setActiveZone("welcome")}>×</button><small>LOCATION 02 · EDUCATION</small><h2>Education Academy</h2><h3>Diploma in Computer Engineering</h3><p>Vijaya Institute of Technology for Women (VITW), Vijayawada.</p><div className="panel-note">A foundation in computer engineering, programming, and practical project development.</div><h3>Learning journey</h3><p>Haritha continued her studies in Computer Science and Engineering at RGMCET, Nandyal.</p></div>}
-  {activeZone==="lab"&&<div className="side-panel project-panel"><button className="close" onClick={()=>setActiveZone("welcome")}>×</button><small>LOCATION 03 · PROJECT GALLERY</small><h2>Mini Project Laboratory</h2><p>Choose a workstation to inspect a project from Haritha's portfolio.</p><div className="project-list">{projects.filter(p=>p.category==="Diploma Mini Projects").map((p,i)=><button key={p.id} onClick={()=>{setSelectedProject(p);startDialogue([["Doraemon","Let's discover "+p.name+"!"],["Nobita",p.summary]]);playSfx(880)}}><span className="project-number">{String(i+1).padStart(2,"0")}</span><span><b>{p.name}</b><small>{p.summary}</small></span><i>↗</i></button>)}</div></div>}
+  {activeZone==="lab"&&<div className="side-panel project-panel"><button className="close" onClick={()=>setActiveZone("welcome")}>×</button><small>LOCATION 03 · PROJECT GALLERY</small><h2>Mini Project Laboratory</h2><p>Choose a workstation to inspect a project from Haritha's portfolio.</p><div className="project-list">{projects.filter(p=>p.category==="Diploma Mini Projects").map((p,i)=><button key={p.id} onClick={()=>{setSelectedProject(p);startDialogue([["Mimo","Let's discover "+p.name+"!"],["Nori",p.summary]]);playSfx(880)}}><span className="project-number">{String(i+1).padStart(2,"0")}</span><span><b>{p.name}</b><small>{p.summary}</small></span><i>↗</i></button>)}</div></div>}
   {activeZone==="innovation"&&<div className="side-panel"><button className="close" onClick={()=>setActiveZone("welcome")}>×</button><small>LOCATION 04 · EXPERIMENTS</small><h2>Innovation Center</h2><p>Experiments and interactive builds from the learning journey.</p><div className="project-list">{projects.filter(p=>p.category!=="Diploma Mini Projects").map(p=><button key={p.id} onClick={()=>setSelectedProject(p)}><span><b>{p.name}</b><small>{p.summary}</small></span><i>↗</i></button>)}</div></div>}
   {activeZone==="skills"&&<div className="side-panel"><button className="close" onClick={()=>setActiveZone("welcome")}>×</button><small>LOCATION 05 · TECHNOLOGY</small><h2>Technology Park</h2><p>Tools and technologies reflected in the published project collection.</p><div className="skill-cloud">{["HTML","CSS","JavaScript","Node.js basics","React","TypeScript","Java","SQL","Supabase","Firebase","Tailwind CSS"].map(x=><span key={x}>{x}</span>)}</div><p className="panel-note">Skills are presented from Haritha's shared portfolio information; project-specific stacks are listed separately in each card.</p></div>}
   {activeZone==="contact"&&<div className="side-panel"><button className="close" onClick={()=>setActiveZone("welcome")}>×</button><small>LOCATION 06 · CONNECT</small><h2>Contact Station</h2><p>Continue the conversation or explore more code.</p><div className="contact-links"><a href="https://github.com/HarithaKongi" target="_blank" rel="noreferrer">GitHub ↗</a><a href="https://www.linkedin.com/in/haritha-kongi/" target="_blank" rel="noreferrer">LinkedIn ↗</a><a href="https://leetcode.com/u/Haritha_Kongi/" target="_blank" rel="noreferrer">LeetCode ↗</a><a href="https://www.codechef.com/users/haritha_kongi" target="_blank" rel="noreferrer">CodeChef ↗</a><a href="mailto:">Email Haritha ↗</a></div></div>}
