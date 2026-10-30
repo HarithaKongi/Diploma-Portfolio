@@ -1,8 +1,10 @@
 # Haritha Kongi — Diploma Projects Portfolio
 
-Responsive portfolio website showcasing eight diploma projects, built with HTML, CSS and vanilla JavaScript.
+Responsive portfolio website showcasing 13 diploma projects, built with HTML, CSS and vanilla JavaScript.
 
 ## Projects
+
+### Existing diploma projects
 - Digital Clock Application
 - Todo App
 - Simple Calculator
@@ -12,10 +14,17 @@ Responsive portfolio website showcasing eight diploma projects, built with HTML,
 - Real-Time Chat Application
 - Data Visualization Dashboard
 
+### Additional JavaScript practice projects
+- Color Changer
+- JavaScript Functions Lab
+- Increment, Decrement & Addition
+- Looping Statements
+- Machu Picchu Travel Package
+
 ## Run locally
-Open index.html in any modern browser. No build step or dependencies required.
+Open `index.html` in any modern browser. No build step or dependencies required.
 
 ## Deploy on Netlify
-Import this GitHub repository in Netlify. Set the build command to blank and the publish directory to `.` (repository root).
+Set the build command to blank and the publish directory to `.` (repository root).
 
-Project source links point to the separate HarithaKongi/Diploma-Projects repository.
+The additional project pages are available under the `projects/` directory.
