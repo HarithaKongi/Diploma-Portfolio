@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#f8c8dc">
+<title>Advance Happy Birthday Kongi Ravibabu 🎉</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Playfair+Display:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{min-height:100vh;overflow-x:hidden;overflow-y:auto;font-family:Poppins,sans-serif;background:radial-gradient(circle at top left,#ffd6e8,transparent 35%),radial-gradient(circle at bottom right,#d8c7ff,transparent 40%),linear-gradient(135deg,#f8c8dc,#e7d8ff,#ccecff);display:flex;justify-content:center;align-items:center;padding:24px 0}
+body:before{content:"";position:fixed;inset:-30%;background:radial-gradient(circle,rgba(255,255,255,.55) 1px,transparent 2px);background-size:45px 45px;animation:backgroundMove 20s linear infinite;pointer-events:none}
+@keyframes backgroundMove{to{transform:translate(-100px,-80px)}}
+.card{position:relative;z-index:10;width:min(92%,680px);min-height:680px;padding:35px 25px 30px;text-align:center;background:rgba(255,255,255,.45);backdrop-filter:blur(22px);border:1px solid rgba(255,255,255,.85);border-radius:40px;box-shadow:0 25px 70px rgba(104,76,135,.22),inset 0 1px rgba(255,255,255,.9);animation:cardEnter 1.5s cubic-bezier(.2,.8,.2,1)}
+@keyframes cardEnter{from{opacity:0;transform:translateY(50px) scale(.92)}to{opacity:1;transform:translateY(0) scale(1)}}
+.top-text{color:#9b6a8f;font-size:.75rem;letter-spacing:4px;text-transform:uppercase;margin-bottom:8px}
+h1{font-family:"Playfair Display",serif;font-size:clamp(1.9rem,5vw,3.5rem);color:#754e69;line-height:1.15;animation:titlePulse 3s ease-in-out infinite}
+@keyframes titlePulse{50%{transform:scale(1.03)}}
+.name{font-family:"Great Vibes",cursive;font-size:clamp(3.3rem,9vw,6rem);color:#d56d98;margin:10px 0 15px;text-shadow:0 4px 15px rgba(213,109,152,.25);animation:nameFloat 3s ease-in-out infinite}
+@keyframes nameFloat{50%{transform:translateY(-8px)}}
+.wishes{min-height:110px;display:flex;justify-content:center;align-items:center;margin:5px auto 10px}
+.wish-line{display:none;color:#765f6f;font-family:"Playfair Display",serif;font-size:clamp(1rem,3vw,1.3rem);line-height:1.7;max-width:500px}
+.wish-line.active{display:block;animation:wishAppear 1s ease forwards}
+@keyframes wishAppear{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.cake-area{position:relative;width:280px;height:230px;margin:5px auto 0;animation:cakeFloat 4s ease-in-out infinite}
+@keyframes cakeFloat{50%{transform:translateY(-8px)}}
+.plate{position:absolute;width:245px;height:18px;left:17px;bottom:8px;border-radius:50%;background:#fffaf8;box-shadow:0 10px 20px rgba(117,78,105,.16)}
+.cake-bottom,.cake-middle,.cake-top{position:absolute;left:50%;transform:translateX(-50%);overflow:hidden;border-radius:18px 18px 13px 13px;box-shadow:inset 0 -8px rgba(0,0,0,.05)}
+.cake-bottom{width:230px;height:70px;bottom:22px;background:linear-gradient(#f5a9c4,#e987ad)}
+.cake-middle{width:185px;height:55px;bottom:82px;background:linear-gradient(#d8b6f2,#bb95dd)}
+.cake-top{width:145px;height:45px;bottom:130px;background:linear-gradient(#f9d8a8,#edbd79)}
+.icing{position:absolute;top:0;left:0;width:100%;height:14px;background:#fffaf7;border-radius:0 0 45% 45%}
+.cake-message{position:absolute;width:100%;bottom:48px;z-index:3;color:white;font-family:"Playfair Display",serif;font-size:.85rem;font-weight:600;text-shadow:0 1px 3px rgba(0,0,0,.25)}
+.candles{position:absolute;width:100%;bottom:173px;display:flex;justify-content:center;gap:22px}
+.candle{position:relative;width:10px;height:45px;border-radius:8px;background:repeating-linear-gradient(45deg,#fff 0 5px,#f7a3bd 5px 10px)}
+.flame{position:absolute;width:16px;height:24px;left:-3px;top:-27px;background:radial-gradient(circle at 50% 70%,#fff9ae 10%,#ffc857 45%,#ff9f43 100%);border-radius:60% 40% 55% 45%;box-shadow:0 0 12px #ffd166,0 0 25px rgba(255,190,11,.7);animation:flameDance .7s ease-in-out infinite alternate}
+@keyframes flameDance{to{transform:rotate(4deg) scale(1.15)}}
+.flying-balloon{position:fixed;bottom:-180px;width:75px;height:95px;border-radius:50%;z-index:2;opacity:.9;box-shadow:inset -12px -14px rgba(0,0,0,.07),0 12px 25px rgba(70,50,80,.08);animation:balloonFly linear forwards}
+.flying-balloon:before{content:"";position:absolute;width:13px;height:13px;left:calc(50% - 6px);bottom:-6px;background:inherit;transform:rotate(45deg)}
+.flying-balloon:after{content:"";position:absolute;width:1px;height:150px;left:50%;top:93px;background:rgba(255,255,255,.65)}
+@keyframes balloonFly{0%{transform:translateY(0) rotate(-5deg)}25%{transform:translateY(-28vh) translateX(30px) rotate(5deg)}50%{transform:translateY(-58vh) translateX(-35px) rotate(-6deg)}75%{transform:translateY(-88vh) translateX(25px) rotate(5deg)}100%{transform:translateY(-125vh) translateX(-20px) rotate(-3deg);opacity:0}}
+.sparkle{position:fixed;z-index:4;color:white;pointer-events:none;animation:sparkleDance 2.5s ease-in-out infinite}
+@keyframes sparkleDance{0%,100%{transform:scale(.6);opacity:.3}50%{transform:scale(1.4) rotate(90deg);opacity:1}}
+.confetti{position:fixed;width:8px;height:14px;top:-30px;border-radius:4px;z-index:3;animation:confettiFall linear forwards}
+@keyframes confettiFall{to{transform:translateY(110vh) rotate(540deg)}}
+.audio-btn{margin-top:12px;padding:14px 28px;border:0;border-radius:50px;cursor:pointer;font-family:Poppins,sans-serif;font-size:.95rem;font-weight:500;color:white;background:linear-gradient(135deg,#d982a8,#a886d5);box-shadow:0 10px 25px rgba(169,112,153,.25);transition:.3s;animation:buttonPulse 2.5s infinite}
+.audio-btn:hover{transform:translateY(-3px) scale(1.04)}
+@keyframes buttonPulse{50%{box-shadow:0 12px 35px rgba(169,112,153,.5)}}
+.audio-btn.playing{background:linear-gradient(135deg,#b8739b,#8e70bc)}
+@media(max-width:600px){.card{min-height:620px;padding:28px 15px;border-radius:30px}.cake-area{transform:scale(.86);margin-top:-10px;margin-bottom:-25px}.wish-line{padding:0 10px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation-duration:.01ms!important;animation-iteration-count:1!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<main class="card">
+<div class="top-text">A Special Celebration • Coming Soon</div>
+<h1>🎉 Advance Happy Birthday 🎉</h1>
+<div class="name">Kongi Ravibabu</div>
+<div class="wishes">
+<p class="wish-line active">🎈 Your special day is coming soon...<br>So here is a little celebration in advance! ✨</p>
+<p class="wish-line">🎵 A little more joy, a little more laughter,<br>and a lot more happiness for your special day!</p>
+<p class="wish-line">🌟 May every dream shine brighter,<br>and may your life always be filled with success and happiness.</p>
+<p class="wish-line">🎂 Advance Happy Birthday, Kongi Ravibabu!<br>Wishing you a magical celebration and a wonderful year ahead! ✨</p>
+</div>
+<div class="cake-area">
+<div class="candles"><div class="candle"><div class="flame"></div></div><div class="candle"><div class="flame"></div></div><div class="candle"><div class="flame"></div></div><div class="candle"><div class="flame"></div></div><div class="candle"><div class="flame"></div></div></div>
+<div class="cake-top"><div class="icing"></div></div><div class="cake-middle"><div class="icing"></div></div><div class="cake-bottom"><div class="icing"></div></div><div class="cake-message">Advance Happy Birthday, Ravibabu ♡</div><div class="plate"></div>
+</div>
+<button class="audio-btn" id="celebrateButton" type="button">🎵 Start the Birthday Celebration</button>
+</main>
+<script>
+const wishes=document.querySelectorAll(".wish-line");let currentWish=0;
+setInterval(()=>{wishes[currentWish].classList.remove("active");currentWish=(currentWish+1)%wishes.length;wishes[currentWish].classList.add("active")},4500);
+const balloonColors=["#f7b7cc","#c9b7e8","#a9d9e8","#f6d6a9","#f4a9a9","#c8e6c9","#ffd6a5","#e0bbff"];
+function createBalloon(){const balloon=document.createElement("div");balloon.className="flying-balloon";balloon.style.left=Math.random()*95+"vw";balloon.style.background=balloonColors[Math.floor(Math.random()*balloonColors.length)];const size=Math.random()*25+55;balloon.style.width=size+"px";balloon.style.height=size*1.3+"px";const duration=Math.random()*5+8;balloon.style.animationDuration=duration+"s";document.body.appendChild(balloon);setTimeout(()=>balloon.remove(),duration*1000)}
+const balloonTimer=setInterval(createBalloon,1000);for(let i=0;i<8;i++)setTimeout(createBalloon,i*500);
+function createSparkle(){const el=document.createElement("div");el.className="sparkle";el.textContent=["✦","✧","✨","⋆","⭐"][Math.floor(Math.random()*5)];el.style.left=Math.random()*95+"vw";el.style.top=Math.random()*90+"vh";el.style.fontSize=Math.random()*15+12+"px";document.body.appendChild(el);setTimeout(()=>el.remove(),3500)}
+setInterval(createSparkle,700);
+const confettiColors=["#f7b7cc","#c9b7e8","#a9d9e8","#f6d6a9","#ffffff"];
+function createConfetti(){const el=document.createElement("div");el.className="confetti";el.style.left=Math.random()*100+"vw";el.style.background=confettiColors[Math.floor(Math.random()*confettiColors.length)];const duration=Math.random()*4+5;el.style.animationDuration=duration+"s";document.body.appendChild(el);setTimeout(()=>el.remove(),duration*1000)}
+setInterval(createConfetti,450);
+let audioContext=null,celebrationStarted=false;
+const button=document.getElementById("celebrateButton");
+button.addEventListener("click",async()=>{
+if(celebrationStarted)return;celebrationStarted=true;button.classList.add("playing");button.textContent="🎉 Celebration is Playing...";
+try{audioContext=new(window.AudioContext||window.webkitAudioContext)();await audioContext.resume();startJoyfulMusic();setTimeout(playAdvanceBirthdayWish,1500)}catch(error){button.textContent="🎉 Voice wish";playAdvanceBirthdayWish()}
+});
+const melody=[[523.25,.25],[659.25,.25],[783.99,.25],[1046.5,.5],[783.99,.25],[659.25,.25],[523.25,.25],[659.25,.5],[587.33,.25],[739.99,.25],[880,.25],[1174.66,.5],[880,.25],[783.99,.25],[659.25,.25],[523.25,.5]];
+function startJoyfulMusic(){function loop(){if(!celebrationStarted||!audioContext)return;let time=audioContext.currentTime;melody.forEach(([frequency,duration])=>{playNote(frequency,time,duration);time+=duration});setTimeout(loop,6000)}loop()}
+function playNote(frequency,startTime,duration){const oscillator=audioContext.createOscillator(),gain=audioContext.createGain();oscillator.type="sine";oscillator.frequency.value=frequency;gain.gain.setValueAtTime(0,startTime);gain.gain.linearRampToValueAtTime(.06,startTime+.03);gain.gain.exponentialRampToValueAtTime(.001,startTime+duration);oscillator.connect(gain);gain.connect(audioContext.destination);oscillator.start(startTime);oscillator.stop(startTime+duration)}
+function playAdvanceBirthdayWish(){if(!("speechSynthesis"in window))return;window.speechSynthesis.cancel();const wish=new SpeechSynthesisUtterance("Hello Kongi Ravibabu! Your special day is coming soon, so I wanted to wish you in advance! Advance Happy Birthday to you! May your upcoming birthday be filled with happiness, laughter, joy, and beautiful surprises. May every moment bring a smile to your face, and may all your dreams come true. Keep smiling, keep shining, and keep moving towards your beautiful dreams. Once again, Advance Happy Birthday, dear Kongi Ravibabu! Have a wonderful, magical, and joyful year ahead!");wish.rate=.82;wish.pitch=1.25;wish.volume=1;const voices=window.speechSynthesis.getVoices();const preferred=voices.find(v=>v.lang.startsWith("en")&&(/zira|samantha|female|google us english/i.test(v.name)));if(preferred)wish.voice=preferred;window.speechSynthesis.speak(wish)}
+</script>
+</body>
+</html>
