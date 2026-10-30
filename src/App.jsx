@@ -222,6 +222,7 @@ const opening=[
 ];
 const navItems=["Home","About","Education","Projects","Skills","Contact"];
 function App(){
+ const [sceneMode,setSceneMode]=useState('neighbourhood');
  const [intro,setIntro]=useState(true),[introPlaying,setIntroPlaying]=useState(false),[introStep,setIntroStep]=useState(0),[introStage,setIntroStage]=useState(0),[introTitle,setIntroTitle]=useState(false);
  const [dialogue,setDialogue]=useState(null),[dialogueIndex,setDialogueIndex]=useState(0),[activeZone,setActiveZone]=useState("welcome"),[tourTarget,setTourTarget]=useState(null),[vehicle,setVehicle]=useState(false),[walking,setWalking]=useState(true),[selectedProject,setSelectedProject]=useState(null),[category,setCategory]=useState("All"),[autoTour,setAutoTour]=useState(false),[showHelp,setShowHelp]=useState(false),[quality,setQuality]=useState(true);
  const [activeView,setActiveView]=useState("Home"),[showAllProjects,setShowAllProjects]=useState(false),[audioPanel,setAudioPanel]=useState(false),[muted,setMuted]=useState(false),[subtitles,setSubtitles]=useState(true),[masterVol,setMasterVol]=useState(.7),[musicVol,setMusicVol]=useState(.28),[voiceVol,setVoiceVol]=useState(.9),[sfxVol,setSfxVol]=useState(.55);
