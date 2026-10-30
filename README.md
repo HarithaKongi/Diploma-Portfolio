@@ -1,6 +1,6 @@
 # Doraemon & Nobita – Haritha's Engineering Adventure
 
-A React + Vite + React Three Fiber portfolio prototype that turns Haritha's diploma project collection into a miniature interactive city.
+An episode-inspired interactive 3D portfolio built on the existing diploma project collection using React, Vite, Three.js and React Three Fiber.
 
 ## Run locally
 
@@ -9,42 +9,47 @@ npm install
 npm run dev
 ```
 
-Build with `npm run build`.
+Production build:
 
-## Current experience
+```bash
+npm run build
+npm run preview
+```
 
-- Existing procedural Doraemon/Nobita-inspired placeholder characters are retained temporarily.
-- Expanded miniature city dressing: street lamps, benches, flower beds, road lane markings, curb details, trees, lit building signs and a fountain feature.
-- Six navigable portfolio locations with project, education, skills and contact panels.
-- Smooth follow camera that rotates with the explorer; mouse orbit remains available.
-- Keyboard exploration with normalized diagonal movement, acceleration boost (Shift), brake (Space), interaction (E) and vehicle toggle (V).
-- A small vehicle moves with the explorer; wheel meshes rotate while driving mode is enabled.
-- Simplified building-area collision boundaries.
-- Touch D-pad controls on narrow screens and a WebGL fallback linking to the preserved 2D portfolio.
-- High/low render-quality toggle.
-- Project metadata remains in `src/data/portfolio.js`; diploma demos remain under `public/projects/`.
+## Portfolio content preservation
 
-## Character asset replacement point
+The source of truth for the existing 15 project entries is `src/data/portfolio.js`. Existing project titles, summaries, technology lists, GitHub source URLs and available demo URLs are retained. The existing demo pages remain in `public/projects/`. The original traditional portfolio remains available under `/legacy/index.html`.
 
-No third-party copyrighted character model is bundled. The procedural characters remain active until properly licensed assets are supplied.
+## Adventure experience
 
-- Put authorized GLB files in `public/models/`.
+- Episode-style introduction with a sky-to-city camera sequence, moving clouds, a miniature vehicle entrance, the existing temporary procedural characters, dialogue, title reveal, skip and replay controls.
+- Original synthesized background melody generated in the browser after the visitor starts the experience.
+- Character dialogue uses the browser's speech synthesis engine with distinct pitch/rate settings and subtitles. These are synthesized placeholder voices, not authentic licensed character recordings or professional voice actors.
+- Audio mixer with master, music, voice and effects controls, mute and subtitle toggles.
+- Six interactive locations: Welcome Plaza, Education Academy, Mini Project Laboratory, Innovation Center, Technology Park and Contact Station.
+- Project archive with category filters and original GitHub/demo links.
+- Project discovery dialogue, location navigation, mini-map, smooth camera/player transitions and auto-tour.
+- Keyboard and touch controls, vehicle toggle, high/low quality setting, and traditional portfolio fallback.
+
+## Character model policy
+
+The current procedural Doraemon/Nobita-inspired characters are temporary placeholders. No unauthorized copyrighted models, episode audio or theme music are bundled.
+
+- Authorized GLB assets can be placed in `public/models/`.
 - Read `public/models/README.md` for asset and license expectations.
-- `src/components/CharacterAsset.jsx` provides a reusable GLB/GLTF loader with safe skinned-mesh cloning and named animation-clip crossfades.
-- Replace the current procedural `Doraemon` and `Nobita` component mounts only after confirming each model's license, scale, rig and animation clip names.
+- `src/components/CharacterAsset.jsx` is the reusable GLB/GLTF loader integration point for properly rigged models and named animation clips.
 
-## Honest implementation boundaries
+## Current technical boundaries
 
-This pass improves presentation, navigation, driving feel and interaction, but it is not a full vehicle simulator. Movement collision is a lightweight boundary check rather than a Rapier rigid-body world; suspension, steering wheel physics, seated skeletal poses, facial animation and cinematic character choreography still require dedicated implementation and suitable rigged assets. The current procedural characters do not become film-quality models through this environment pass.
+This is an interactive portfolio prototype, not a completed commercial game or animated television episode. The current intro uses Three.js scene composition and camera easing; it does not yet contain a fully authored Blender cinematic, professional character rigs, lip-synced acting, physical vehicle seating, full suspension/steering simulation, or Rapier collision-driven gameplay. Browser speech synthesis and generated oscillator music are functional placeholders for later licensed/recorded production audio.
 
-The existing project names, summaries, technologies, source links and available demo links are preserved from the portfolio data. No unverified project claims or new projects are added.
+The project cards currently display only the verified information available in the existing project data; no screenshots, descriptions, technologies or links are fabricated.
 
 ## Deployment
 
-Netlify build settings:
+Netlify:
 - Build command: `npm run build`
 - Publish directory: `dist`
 - Production branch: `main`
-- Preview branch: `doraemon-nobita-engineering-adventure`
 
-Test the branch preview before merging. The existing production branch is not modified by this work.
+The GitHub Actions workflow runs `npm install` and `npm run build` on pushes to `main` and the adventure feature branch, and on pull requests targeting `main`.
