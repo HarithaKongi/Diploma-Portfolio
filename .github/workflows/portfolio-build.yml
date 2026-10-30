@@ -1,0 +1,25 @@
+name: Portfolio build check
+
+on:
+  push:
+    branches:
+      - doraemon-nobita-engineering-adventure
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - name: Install dependencies
+        run: npm install
+      - name: Build Vite app
+        run: npm run build
