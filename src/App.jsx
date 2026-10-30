@@ -72,7 +72,7 @@ function World({activeZone,setActiveZone,vehicle,setVehicle,walking,setWalking,o
 }
 const opening=[["Nobita","I also want to become an engineer!"],["Doraemon","Then let's see what Haritha has created!"],["Nobita","She built all these projects during her diploma?"],["Doraemon","Yes! Let's learn how she did it!"],["Nobita","Wow! I can't wait to explore!"],["Doraemon","Come on, Nobita! Our adventure begins now!"]];
 function App(){
- const [intro,setIntro]=useState(true),[openingIndex,setOpeningIndex]=useState(-1),[dialogue,setDialogue]=useState(null),[dialogueIndex,setDialogueIndex]=useState(0),[activeZone,setActiveZone]=useState("welcome"),[vehicle,setVehicle]=useState(false),[walking,setWalking]=useState(true),[selectedProject,setSelectedProject]=useState(null),[category,setCategory]=useState("All"),[autoTour,setAutoTour]=useState(false),[showHelp,setShowHelp]=useState(false),[quality,setQuality]=useState(true);
+ const [intro,setIntro]=useState(true),[openingIndex,setOpeningIndex]=useState(-1),[dialogue,setDialogue]=useState(null),[dialogueIndex,setDialogueIndex]=useState(0),[activeZone,setActiveZone]=useState("welcome"),[tourTarget,setTourTarget]=useState(null),[vehicle,setVehicle]=useState(false),[walking,setWalking]=useState(true),[selectedProject,setSelectedProject]=useState(null),[category,setCategory]=useState("All"),[autoTour,setAutoTour]=useState(false),[showHelp,setShowHelp]=useState(false),[quality,setQuality]=useState(true);
  const bubble=useRef(null);
  useEffect(()=>{if(dialogue&&bubble.current)gsap.fromTo(bubble.current,{y:18,opacity:0},{y:0,opacity:1,duration:.35,ease:'power2.out'})},[dialogueIndex,dialogue]);
  const currentDialogue=dialogue?.[dialogueIndex];
