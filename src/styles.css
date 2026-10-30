@@ -94,3 +94,14 @@ canvas{touch-action:none}
 /* Interactive bedroom and time-travel adventure scenes */
 .actions button:disabled{opacity:.45;cursor:not-allowed}
 @media(max-width:760px){.bottom-hud .actions{max-width:100%;flex-wrap:wrap}.bottom-hud .actions button{font-size:8px}}
+
+
+/* Discovery tracker and invention laboratory */
+.discovery-progress{position:absolute;z-index:5;right:235px;top:94px;min-width:180px;padding:9px 12px;border:1px solid #ffffff55;border-radius:13px;background:#061d3cc9;color:#eaf7ff;backdrop-filter:blur(12px);display:grid;grid-template-columns:auto 1fr;align-items:center;gap:3px 9px;box-shadow:0 10px 30px #05244430}
+.discovery-progress b{font:800 18px 'Space Grotesk';color:#ffe16b;grid-row:span 2}
+.discovery-progress span{font-size:8px;letter-spacing:1.2px;font-weight:900;color:#c4e2f5}
+.discovery-progress>div{height:4px;border-radius:5px;background:#ffffff30;overflow:hidden}
+.discovery-progress i{display:block;height:100%;border-radius:5px;background:linear-gradient(90deg,#54d7e8,#ffe16b);transition:width .35s ease}
+.archive-intro{font-size:12px;line-height:1.55;color:#60788c;margin:0 0 12px}
+@media(max-width:1050px){.discovery-progress{right:16px;top:86px;min-width:155px}}
+@media(max-width:760px){.discovery-progress{top:116px;right:10px;min-width:140px;padding:7px 9px}.discovery-progress b{font-size:15px}.discovery-progress span{font-size:7px}.mini-map{top:160px}}
