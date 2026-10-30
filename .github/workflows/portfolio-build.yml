@@ -3,6 +3,7 @@ name: Portfolio build check
 on:
   push:
     branches:
+      - main
       - doraemon-nobita-engineering-adventure
   pull_request:
     branches:
