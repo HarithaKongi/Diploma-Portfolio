@@ -83,3 +83,10 @@ canvas{touch-action:none}
 @keyframes episodeTitle{0%{opacity:0;transform:scale(.84);filter:blur(8px)}100%{opacity:1;transform:scale(1);filter:blur(0)}}
 @media(max-width:1050px){.top-nav{gap:0}.top-nav button{padding:7px;font-size:10px}.traditional-link{display:none}}
 @media(max-width:760px){.cinematic-hud{flex-wrap:wrap;gap:7px}.top-nav{order:3;flex-basis:100%;justify-content:space-between}.top-nav button{font-size:9px;padding:6px 7px}.hud-top>div{min-width:0}.hud-top strong{font-size:9px}.mini-map{left:10px;top:130px;gap:3px;padding:6px}.mini-map button{width:19px;height:19px}.episode-vignette{top:12px;left:12px;right:12px;gap:8px;font-size:7px}.episode-vignette button{font-size:7px;padding:7px}.episode-subtitle{bottom:11%;padding:12px}.episode-mute{right:12px;bottom:12px}.episode-title{padding:28px 16px}.live-subtitle{bottom:130px}.all-projects-modal,.audio-modal{padding:20px}.audio-modal .volume-row{grid-template-columns:100px 1fr}}
+
+/* Kaze-machi: warm anime-neighbourhood presentation */
+.world-label{letter-spacing:.16em;text-shadow:0 2px 12px rgba(24,55,79,.28)}
+.episode-card h1,.episode-title h1{letter-spacing:.035em}
+.location-nav button{backdrop-filter:blur(14px)}
+.location-nav button small{color:#6d8795}
+@media(max-width:760px){.location-nav{max-width:150px}.location-nav button{padding:8px}.location-nav button span{font-size:10px}}
