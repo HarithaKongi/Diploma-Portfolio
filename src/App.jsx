@@ -74,7 +74,7 @@ function World({activeZone,setActiveZone,vehicle,setVehicle,walking,setWalking,o
  {Array.from({length:8},(_,i)=><Bench key={'bench'+i} position={[-25+(i%4)*16,0,-18+Math.floor(i/4)*36]}/>)}
  {Array.from({length:10},(_,i)=><FlowerPatch key={'flower'+i} position={[-24+(i%5)*12,.05,-22+Math.floor(i/5)*44]}/>)}
  <mesh position={[0,.08,-31]} rotation={[-Math.PI/2,0,0]}><circleGeometry args={[3.4,48]}/><meshStandardMaterial color="#54a9c9" roughness={.2} metalness={.1}/></mesh><mesh position={[0,.16,-31]}><torusGeometry args={[3.3,.12,12,48]}/><meshStandardMaterial color="#f5d36b" metalness={.45}/></mesh>
- <group ref={player} position={[0,0,4]}><group position={vehicle?[-.78,.52,.05]:[0,0,0]}><Doraemon moving={isMoving&&!vehicle} driving={vehicle}/></group><group position={vehicle?[-.78,.52,.05]:[0,0,0]}><Nobita moving={moving.current&&!vehicle} driving={vehicle}/></group>{vehicle&&<MiniCar moving={isMoving}/ >}</group>
+ <group ref={player} position={[0,0,4]}><group position={vehicle?[-.78,.52,.05]:[0,0,0]}><Doraemon moving={isMoving&&!vehicle} driving={vehicle}/></group><group position={vehicle?[-.78,.52,.05]:[0,0,0]}><Nobita moving={moving.current&&!vehicle} driving={vehicle}/></group>{vehicle&&<MiniCar moving={isMoving}/>}</group>
  {near&&<group position={[near.position[0],.5,near.position[2]+5]}><Float speed={2} floatIntensity={.2}><mesh><sphereGeometry args={[.35,16,16]}/><meshStandardMaterial color="#ffdc5e" emissive="#b17b00" emissiveIntensity={.4}/></mesh></Float></group>}
  <ContactShadows position={[0,-.06,0]} opacity={.25} scale={70} blur={2.5}/>
  <OrbitControls ref={controls} enablePan={false} enableZoom minDistance={8} maxDistance={45} maxPolarAngle={Math.PI/2.05}/>
