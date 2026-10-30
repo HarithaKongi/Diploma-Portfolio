@@ -20,7 +20,7 @@ function Tree({position}){return <group position={position}><mesh position={[0,.
 function Doraemon({moving=false,driving=false}) {
  const root=useRef(),arm=useRef(),leg=useRef();
  useFrame(({clock})=>{const t=clock.elapsedTime; if(root.current)root.current.position.y=Math.sin(t*5)*.045*(moving?1.8:1);if(arm.current)arm.current.rotation.z=Math.sin(t*(moving?9:2))*.25;if(leg.current)leg.current.rotation.x=moving?Math.sin(t*10)*.45:0});
- return <group ref={root} scale={driving?.72:1}>
+ return <group ref={root} scale={driving ? 0.72 : 1}>
   <mesh position={[0,1.05,0]} castShadow><capsuleGeometry args={[.58,.78,8,16]}/><meshStandardMaterial color="#168de2"/></mesh>
   <mesh position={[0,2.15,0]} castShadow><sphereGeometry args={[.72,32,24]}/><meshStandardMaterial color="#168de2"/></mesh>
   <mesh position={[0,2.04,.48]} scale={[.88,.72,.35]}><sphereGeometry args={[.66,32,24]}/><meshStandardMaterial color="white"/></mesh>
@@ -37,7 +37,7 @@ function Doraemon({moving=false,driving=false}) {
 function Nobita({moving=false,driving=false}) {
  const root=useRef(),arm=useRef(),legs=useRef();
  useFrame(({clock})=>{const t=clock.elapsedTime;if(root.current)root.current.position.y=Math.sin(t*5+.5)*.04*(moving?2:1);if(arm.current)arm.current.rotation.z=Math.sin(t*(moving?9:2)+1)*.22;if(legs.current)legs.current.rotation.x=moving?Math.sin(t*10+1)*.42:0});
- return <group ref={root} position={[1.55,0,0]} scale={driving?.72:1}>
+ return <group ref={root} position={[1.55,0,0]} scale={driving ? 0.72 : 1}>
   <mesh position={[0,1.03,0]} castShadow><capsuleGeometry args={[.4,.65,8,14]}/><meshStandardMaterial color="#f2c743"/></mesh>
   <mesh position={[0,1.9,0]} castShadow><sphereGeometry args={[.52,24,20]}/><meshStandardMaterial color="#f1c49d"/></mesh>
   <mesh position={[0,2.3,-.02]} scale={[1,.48,.9]}><sphereGeometry args={[.52,20,16]}/><meshStandardMaterial color="#292b35"/></mesh>
@@ -49,7 +49,7 @@ function Nobita({moving=false,driving=false}) {
   <mesh position={[.2,.4,0]}><capsuleGeometry args={[.13,.5,6,10]}/><meshStandardMaterial color="#315ca5"/></mesh><mesh position={[.2,.12,.12]} scale={[1.2,.4,1.5]}><sphereGeometry args={[.18,16,12]}/><meshStandardMaterial color="white"/></mesh>
  </group>
 }
-function MiniCar({position}){return <group position={position}><mesh position={[0,.55,0]} castShadow><boxGeometry args={[3,.65,1.7]}/><meshStandardMaterial color="#f6d24b" metalness:.25/></mesh><mesh position={[0,1.05,-.1]}><boxGeometry args={[1.45,.65,1.45]}/><meshStandardMaterial color="#a9e4f8" transparent opacity={.75}/></mesh>{[-1,1].flatMap(x=>[-.58,.58].map(z=><mesh key={x+':'+z} position={[x,.25,z]} rotation={[Math.PI/2,0,0]}><cylinderGeometry args={[.32,.32,.2,20]}/><meshStandardMaterial color="#26364d"/></mesh>))}</group>}
+function MiniCar({position}){return <group position={position}><mesh position={[0,.55,0]} castShadow><boxGeometry args={[3,.65,1.7]}/><meshStandardMaterial color="#f6d24b" metalness={0.25}/></mesh><mesh position={[0,1.05,-.1]}><boxGeometry args={[1.45,.65,1.45]}/><meshStandardMaterial color="#a9e4f8" transparent opacity={.75}/></mesh>{[-1,1].flatMap(x=>[-.58,.58].map(z=><mesh key={x+':'+z} position={[x,.25,z]} rotation={[Math.PI/2,0,0]}><cylinderGeometry args={[.32,.32,.2,20]}/><meshStandardMaterial color="#26364d"/></mesh>))}</group>}
 function World({activeZone,setActiveZone,vehicle,setVehicle,walking,setWalking,onDialogue}) {
  const player=useRef(),keys=useRef({}),moving=useRef(false),[near,setNear]=useState(null);
  useEffect(()=>{const down=e=>{keys.current[e.key.toLowerCase()]=true;if(['arrowup','arrowdown','arrowleft','arrowright',' '].includes(e.key.toLowerCase()))e.preventDefault();if(e.key.toLowerCase()==='v')setVehicle(v=>!v);if(e.key.toLowerCase()==='e'&&near){setActiveZone(near.id);onDialogue(near.dialogue)}};const up=e=>keys.current[e.key.toLowerCase()]=false;window.addEventListener('keydown',down);window.addEventListener('keyup',up);return()=>{window.removeEventListener('keydown',down);window.removeEventListener('keyup',up)}},[near,setVehicle,setActiveZone,onDialogue]);
