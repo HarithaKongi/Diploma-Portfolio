@@ -1,11 +1,5 @@
-# Character model assets
+# Optional character assets
 
-This folder is reserved for character models that you have permission to publish and use.
+This directory is reserved for original or properly licensed GLB/GLTF assets that permit public website hosting and redistribution. Keep license and attribution documents beside every added model.
 
-Expected future files:
-- `doraemon.glb`
-- `nobita.glb`
-
-Before adding a model, verify that its license permits website hosting, public redistribution, modification/optimization, and commercial or portfolio use as applicable. Keep the license/attribution text alongside the model.
-
-The React Three Fiber integration point is `src/components/CharacterAsset.jsx`. It loads a GLB/GLTF scene, clones skinned meshes safely, and plays named animation clips with crossfades. No copyrighted model is bundled in this repository. Current procedural characters remain active until suitable licensed assets are supplied.
+The current Mimo and Nori characters are original procedural Three.js designs in `src/App.jsx`; no third-party character files are required. `src/components/CharacterAsset.jsx` is available for future rigged GLB integration.
