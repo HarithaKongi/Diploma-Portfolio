@@ -1,6 +1,6 @@
-# Doraemon & Nobita – Haritha's Engineering Adventure
+# Kaze-machi – Haritha's Engineering Adventure
 
-An episode-inspired interactive 3D portfolio built on the existing diploma project collection using React, Vite, Three.js and React Three Fiber.
+An original anime-inspired interactive 3D portfolio set in a detailed Japanese suburban neighbourhood. Mimo (a mint-green gadget companion) and Nori (a curious student inventor) are original procedural designs created for this portfolio; they are not Doraemon or Nobita replicas.
 
 ## Run locally
 
@@ -9,47 +9,25 @@ npm install
 npm run dev
 ```
 
-Production build:
+Production build: `npm run build`
 
-```bash
-npm run build
-npm run preview
-```
+## Experience
 
-## Portfolio content preservation
+- Cinematic opening, camera fly-through, animated clouds, miniature vehicle entrance, character dialogue, subtitles, skip and replay.
+- Original procedural characters with idle/walking animation.
+- Japanese neighbourhood details: tiled-roof homes, crosswalks, vending machines, utility poles, garden fences, cherry-blossom trees, street furniture and narrow residential roads.
+- Six interactive portfolio destinations, project archive, category filters, mini-map, guided tour, keyboard/touch controls and vehicle toggle.
+- Existing project records, demo URLs, GitHub links and traditional portfolio are retained.
 
-The source of truth for the existing 15 project entries is `src/data/portfolio.js`. Existing project titles, summaries, technology lists, GitHub source URLs and available demo URLs are retained. The existing demo pages remain in `public/projects/`. The original traditional portfolio remains available under `/legacy/index.html`.
+## Asset and IP policy
 
-## Adventure experience
+This project uses original procedural character/environment artwork. It does not bundle ripped episode/game models, official character likenesses, copyrighted episode audio or theme music. The setting is an original Japanese-neighbourhood homage, not an exact reproduction of a copyrighted television set. Properly licensed GLB/GLTF assets may be integrated through `src/components/CharacterAsset.jsx`; keep license and attribution records with each asset.
 
-- Episode-style introduction with a sky-to-city camera sequence, moving clouds, a miniature vehicle entrance, the existing temporary procedural characters, dialogue, title reveal, skip and replay controls.
-- Original synthesized background melody generated in the browser after the visitor starts the experience.
-- Character dialogue uses the browser's speech synthesis engine with distinct pitch/rate settings and subtitles. These are synthesized placeholder voices, not authentic licensed character recordings or professional voice actors.
-- Audio mixer with master, music, voice and effects controls, mute and subtitle toggles.
-- Six interactive locations: Welcome Plaza, Education Academy, Mini Project Laboratory, Innovation Center, Technology Park and Contact Station.
-- Project archive with category filters and original GitHub/demo links.
-- Project discovery dialogue, location navigation, mini-map, smooth camera/player transitions and auto-tour.
-- Keyboard and touch controls, vehicle toggle, high/low quality setting, and traditional portfolio fallback.
+## Technical boundaries
 
-## Character model policy
-
-The current procedural Doraemon/Nobita-inspired characters are temporary placeholders. No unauthorized copyrighted models, episode audio or theme music are bundled.
-
-- Authorized GLB assets can be placed in `public/models/`.
-- Read `public/models/README.md` for asset and license expectations.
-- `src/components/CharacterAsset.jsx` is the reusable GLB/GLTF loader integration point for properly rigged models and named animation clips.
-
-## Current technical boundaries
-
-This is an interactive portfolio prototype, not a completed commercial game or animated television episode. The current intro uses Three.js scene composition and camera easing; it does not yet contain a fully authored Blender cinematic, professional character rigs, lip-synced acting, physical vehicle seating, full suspension/steering simulation, or Rapier collision-driven gameplay. Browser speech synthesis and generated oscillator music are functional placeholders for later licensed/recorded production audio.
-
-The project cards currently display only the verified information available in the existing project data; no screenshots, descriptions, technologies or links are fabricated.
+The characters are procedural Three.js models, not professionally sculpted or rigged production assets. Dialogue uses browser SpeechSynthesis and music is generated through the browser AudioContext. The neighbourhood is composed from original procedural geometry. Professional Blender cinematics, detailed facial rigs/lip-sync, advanced vehicle physics and hand-authored animation remain possible future enhancements.
 
 ## Deployment
 
-Netlify:
-- Build command: `npm run build`
-- Publish directory: `dist`
-- Production branch: `main`
-
-The GitHub Actions workflow runs `npm install` and `npm run build` on pushes to `main` and the adventure feature branch, and on pull requests targeting `main`.
+Netlify build command: `npm run build`; publish directory: `dist`; production branch: `main`.
+GitHub Actions builds on main, the adventure feature branch and pull requests to main.
