@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cafeteria Billing System</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Arial,sans-serif;background:linear-gradient(135deg,#fff7ed,#ffedd5);min-height:100vh;color:#333}
+header{background:linear-gradient(135deg,#f97316,#ea580c);color:white;padding:25px;text-align:center;box-shadow:0 4px 15px rgba(0,0,0,.15)}
+header h1{font-size:32px;margin-bottom:8px}header p{font-size:15px;opacity:.9}
+.container{width:92%;max-width:1200px;margin:30px auto}
+.add-item,.bill-section{background:white;padding:25px;border-radius:18px;box-shadow:0 8px 25px rgba(0,0,0,.08);margin-bottom:30px}
+.add-item h2,.bill-section h2{color:#ea580c;margin-bottom:20px}
+.form-row{display:grid;grid-template-columns:1fr 1fr 1fr auto;gap:15px}
+input{padding:13px;border:1px solid #ddd;border-radius:10px;font-size:15px;outline:none;min-width:0}
+input:focus{border-color:#f97316}
+button{border:0;cursor:pointer;border-radius:10px;padding:13px 20px;font-size:15px;font-weight:bold;transition:.2s}
+button:hover{transform:translateY(-2px)}
+.add-btn{background:#16a34a;color:white}
+.menu-title{margin-bottom:20px;color:#9a3412}
+.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.product{background:white;padding:22px;border-radius:18px;box-shadow:0 8px 20px rgba(0,0,0,.08);transition:.3s;position:relative}
+.product:hover{transform:translateY(-5px)}
+.product-icon{font-size:45px;text-align:center;margin-bottom:12px}
+.product h3{text-align:center;color:#431407;margin-bottom:8px}
+.price{text-align:center;font-size:20px;font-weight:bold;color:#ea580c;margin-bottom:15px}
+.product-actions{display:flex;gap:8px}
+.select-btn{flex:1;background:#f97316;color:white}
+.delete-btn{background:#dc2626;color:white;padding:10px 13px}
+.bill-section{margin-top:35px}
+.bill{border:2px dashed #f97316;border-radius:12px;padding:25px;max-width:750px;margin:auto;background:#fffaf5}
+.bill-header{text-align:center;border-bottom:2px solid #ddd;padding-bottom:15px;margin-bottom:15px}
+.bill-header h3{font-size:25px;color:#9a3412}.bill-header p{margin-top:5px;font-size:13px;color:#777}
+.bill table{width:100%;border-collapse:collapse;margin-top:15px}
+.bill th,.bill td{padding:12px 8px;border-bottom:1px solid #ddd;text-align:center}
+.bill th{background:#fed7aa;color:#7c2d12}
+.quantity-controls{display:flex;justify-content:center;align-items:center;gap:8px}
+.quantity-controls button{padding:5px 10px;background:#f97316;color:white}
+.total{text-align:right;font-size:23px;font-weight:bold;color:#9a3412;margin-top:20px}
+.thank-you{text-align:center;margin-top:30px;padding-top:20px;border-top:2px dashed #ddd;font-size:20px;font-weight:bold;color:#16a34a}
+.bill-buttons{display:flex;justify-content:center;gap:12px;margin-top:20px}
+.print-btn{background:#2563eb;color:white}.clear-btn{background:#dc2626;color:white}
+.empty{text-align:center;color:#777;padding:25px}
+@media(max-width:700px){.form-row{grid-template-columns:1fr}header h1{font-size:25px}.bill{padding:12px;overflow-x:auto}.bill table{min-width:600px}}
+@media print{body{background:white}header,.add-item,.menu-title,.menu,.bill-section>h2,.bill-buttons{display:none!important}.container{width:100%;margin:0}.bill-section{box-shadow:none;padding:0;margin:0}.bill{border:2px solid #333;max-width:100%}}
+</style>
+</head>
+<body>
+<header><h1>🍴 Campus Cafeteria</h1><p>Fresh Food • Great Taste • Happy Students</p></header>
+<div class="container">
+<section class="add-item">
+<h2>➕ Add New Cafeteria Item</h2>
+<div class="form-row">
+<input type="text" id="itemName" placeholder="Enter item name" aria-label="Item name">
+<input type="number" id="itemPrice" placeholder="Enter price" min="1" aria-label="Item price">
+<input type="text" id="itemIcon" placeholder="Emoji e.g. 🍔" maxlength="2" aria-label="Item emoji">
+<button class="add-btn" onclick="addItem()">Add Item</button>
+</div>
+</section>
+<h2 class="menu-title">🍽️ Cafeteria Menu</h2>
+<div class="menu" id="menu"></div>
+<section class="bill-section">
+<h2>🧾 Generated Bill</h2>
+<div class="bill" id="bill">
+<div class="bill-header"><h3>Bill for the selected items</h3><p>Campus Cafeteria</p><p id="billDate"></p></div>
+<div id="billContent"></div>
+<div class="total">Total: ₹<span id="total">0.00</span></div>
+<div class="thank-you">Thank you &amp; visit again ❤️</div>
+</div>
+<div class="bill-buttons"><button class="print-btn" onclick="printBill()">🖨️ Print Bill</button><button class="clear-btn" onclick="clearBill()">🗑️ Clear Bill</button></div>
+</section>
+</div>
+<script>
+let products=[
+{id:1,name:"Veg Burger",price:50,icon:"🍔"},
+{id:2,name:"Pizza",price:80,icon:"🍕"},
+{id:3,name:"French Fries",price:40,icon:"🍟"},
+{id:4,name:"Sandwich",price:45,icon:"🥪"},
+{id:5,name:"Cold Drink",price:30,icon:"🥤"},
+{id:6,name:"Coffee",price:25,icon:"☕"}
+];
+let cart=[];
+function displayProducts(){
+const menu=document.getElementById("menu");menu.innerHTML="";
+if(products.length===0){menu.innerHTML='<div class="empty">No cafeteria items available.</div>';return;}
+products.forEach(product=>{
+const card=document.createElement("div");card.className="product";
+const icon=document.createElement("div");icon.className="product-icon";icon.textContent=product.icon;
+const name=document.createElement("h3");name.textContent=product.name;
+const price=document.createElement("div");price.className="price";price.textContent="₹"+product.price.toFixed(2);
+const actions=document.createElement("div");actions.className="product-actions";
+const select=document.createElement("button");select.className="select-btn";select.textContent="🛒 Select";select.addEventListener("click",()=>addToBill(product.id));
+const del=document.createElement("button");del.className="delete-btn";del.textContent="🗑️";del.setAttribute("aria-label","Delete "+product.name);del.addEventListener("click",()=>deleteProduct(product.id));
+actions.append(select,del);card.append(icon,name,price,actions);menu.appendChild(card);
+});
+}
+function addItem(){
+const name=document.getElementById("itemName").value.trim();
+const price=parseFloat(document.getElementById("itemPrice").value);
+const icon=document.getElementById("itemIcon").value.trim()||"🍽️";
+if(!name){alert("Please enter the item name.");return;}
+if(!Number.isFinite(price)||price<=0){alert("Please enter a valid price.");return;}
+products.push({id:Date.now(),name,price,icon});
+document.getElementById("itemName").value="";document.getElementById("itemPrice").value="";document.getElementById("itemIcon").value="";
+displayProducts();
+}
+function deleteProduct(id){
+const product=products.find(p=>p.id===id);if(!product)return;
+if(!confirm('Delete "'+product.name+'" from the cafeteria menu?'))return;
+products=products.filter(p=>p.id!==id);cart=cart.filter(item=>item.id!==id);updateBill();displayProducts();
+}
+function addToBill(id){
+const product=products.find(p=>p.id===id);if(!product)return;
+const existing=cart.find(item=>item.id===id);
+if(existing)existing.quantity++;else cart.push({id:product.id,name:product.name,price:product.price,quantity:1});
+updateBill();
+}
+function changeQuantity(id,amount){
+const item=cart.find(item=>item.id===id);if(!item)return;
+item.quantity+=amount;if(item.quantity<=0)cart=cart.filter(item=>item.id!==id);updateBill();
+}
+function updateBill(){
+const billContent=document.getElementById("billContent");const totalElement=document.getElementById("total");
+if(cart.length===0){billContent.innerHTML='<div class="empty">No items selected.<br>Select items from the cafeteria menu.</div>';totalElement.textContent="0.00";updateDate();return;}
+let html='<table><thead><tr><th>Item</th><th>Price</th><th>Quantity</th><th>Amount</th></tr></thead><tbody>';let total=0;
+cart.forEach(item=>{const amount=item.price*item.quantity;total+=amount;html+='<tr><td></td><td>₹'+item.price.toFixed(2)+'</td><td><div class="quantity-controls"><button data-id="'+item.id+'" data-change="-1">−</button><strong>'+item.quantity+'</strong><button data-id="'+item.id+'" data-change="1">+</button></div></td><td>₹'+amount.toFixed(2)+'</td></tr>';});
+html+='</tbody></table>';billContent.innerHTML=html;
+cart.forEach(item=>{const row=[...billContent.querySelectorAll("tr")].find(r=>r.querySelector('[data-id="'+item.id+'"]'));if(row)row.cells[0].textContent=item.name;});
+billContent.querySelectorAll("button[data-id]").forEach(button=>button.addEventListener("click",()=>changeQuantity(Number(button.dataset.id),Number(button.dataset.change))));
+totalElement.textContent=total.toFixed(2);updateDate();
+}
+function updateDate(){document.getElementById("billDate").textContent="Date & Time: "+new Date().toLocaleString();}
+function clearBill(){if(cart.length===0)return;if(!confirm("Clear all selected items from the bill?"))return;cart=[];updateBill();}
+function printBill(){if(cart.length===0){alert("Please select at least one item before printing the bill.");return;}window.print();}
+displayProducts();updateBill();updateDate();
+</script>
+</body>
+</html>
