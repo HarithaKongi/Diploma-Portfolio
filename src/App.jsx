@@ -5,6 +5,7 @@ import * as THREE from 'three';
 import gsap from 'gsap';
 import {projects,locations} from './data/portfolio.js';
 import ProjectStations from './components/ProjectStations.jsx';
+import TerminalPortfolio from './components/TerminalPortfolio.jsx';
 import './styles.css';
 
 const BLUE='#168de2', NAVY='#09264b';
@@ -224,6 +225,7 @@ const opening=[
 ];
 const navItems=["Home","About","Education","Projects","Skills","Achievements","Contact"];
 function App(){
+ const [portfolioView,setPortfolioView]=useState('terminal');
  const [sceneMode,setSceneMode]=useState('neighbourhood');
  const [discovered,setDiscovered]=useState([]);
  const [intro,setIntro]=useState(true),[introPlaying,setIntroPlaying]=useState(false),[introStep,setIntroStep]=useState(0),[introStage,setIntroStage]=useState(0),[introTitle,setIntroTitle]=useState(false);
@@ -306,11 +308,12 @@ function App(){
  function visitLocation(l){setActiveZone(l.id);markDiscovered(l.id);setTourTarget(l.position);startDialogue(l.dialogue);playSfx(740)}
  function chooseView(view){setActiveView(view);setShowAllProjects(view==="Projects");setSelectedProject(null);playSfx(600);if(view==="Home"||view==="About"){setActiveZone("welcome");setTourTarget([0,0,4])}else if(view==="Education")visitLocation(locations[1]);else if(view==="Projects")visitLocation(locations[2]);else if(view==="Skills")visitLocation(locations[3]);else if(view==="Achievements")visitLocation(locations[4]);else if(view==="Contact")visitLocation(locations[5])}
  const introLine=introStep<opening.length?opening[introStep]:null;
+ if(portfolioView==='terminal') return <TerminalPortfolio onEnter3D={()=>setPortfolioView('adventure')}/>;
  return <div className="app-shell">
   <Canvas shadows dpr={quality?[1,1.6]:[1,1.15]} camera={{position:[0,34,48],fov:48}} fallback={<div className="webgl-fallback"><h2>3D mode is unavailable</h2><p>Your browser or device could not initialize WebGL. Open the preserved traditional portfolio instead.</p><a href="/legacy/index.html">Open traditional portfolio ↗</a></div>}>
    <World sceneMode={sceneMode} setSceneMode={setSceneMode} activeZone={activeZone} setActiveZone={setActiveZone} vehicle={vehicle} setVehicle={setVehicle} walking={walking} onDialogue={startDialogue} tourTarget={tourTarget} introPlaying={introPlaying} introStage={introStage} onProjectSelect={setSelectedProject} onDiscover={markDiscovered}/>
   </Canvas>
-  <header className="hud-top cinematic-hud"><a className="brand" href="#" onClick={e=>{e.preventDefault();chooseView("Home")}}>HK<span>✦</span></a><div><small>AN INTERACTIVE PORTFOLIO WORLD</small><strong>HARITHA'S ENGINEERING ADVENTURE</strong></div><nav className="top-nav">{navItems.map(item=><button key={item} className={activeView===item?"active":""} onClick={()=>chooseView(item)}>{item}</button>)}</nav><a className="icon-btn traditional-link" href="/legacy/index.html">Traditional Mode ↗</a><button className="icon-btn" onClick={beginIntro}>Replay intro ↻</button>{introPlaying&&<button className="icon-btn" onClick={skipIntro}>Skip intro</button>}<button className="icon-btn" onClick={()=>setAudioPanel(v=>!v)}>Audio ♪</button><button className="icon-btn" onClick={()=>setShowHelp(true)}>?</button></header>
+  <header className="hud-top cinematic-hud"><a className="brand" href="#" onClick={e=>{e.preventDefault();chooseView("Home")}}>HK<span>✦</span></a><div><small>AN INTERACTIVE PORTFOLIO WORLD</small><strong>HARITHA'S ENGINEERING ADVENTURE</strong></div><nav className="top-nav">{navItems.map(item=><button key={item} className={activeView===item?"active":""} onClick={()=>chooseView(item)}>{item}</button>)}</nav><button className="icon-btn" onClick={()=>setPortfolioView("terminal")}>Portfolio Home ↗</button><a className="icon-btn traditional-link" href="/legacy/index.html">Traditional Mode ↗</a><button className="icon-btn" onClick={beginIntro}>Replay intro ↻</button>{introPlaying&&<button className="icon-btn" onClick={skipIntro}>Skip intro</button>}<button className="icon-btn" onClick={()=>setAudioPanel(v=>!v)}>Audio ♪</button><button className="icon-btn" onClick={()=>setShowHelp(true)}>?</button></header>
   <div className="world-label"><span className="pulse-dot"></span> {sceneMode==="neighbourhood"?"KAZE-MACHI NEIGHBOURHOOD":sceneMode==="bedroom"?"MIMO & NORI\u0027S BEDROOM":"THE TIME STREAM"} <span>•</span> {sceneMode==="neighbourhood"?(locations.find(l=>l.id===activeZone)?.name||"Explore"):sceneMode==="bedroom"?"Explore the room":"Meet your timelines"}</div>
   <div className="discovery-progress"><b>{discovered.length}/6</b><span>DESTINATIONS DISCOVERED</span><div><i style={{width:(discovered.length/6*100)+"%"}}/></div></div>
   <aside className="location-nav" style={{display:sceneMode==="neighbourhood"?"":"none"}}><small>EXPLORE LOCATIONS</small>{locations.map(l=><button key={l.id} className={activeZone===l.id?"selected":""} onClick={()=>visitLocation(l)}><span>{l.name}</span><small>{l.short}</small></button>)}</aside>
