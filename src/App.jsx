@@ -31,18 +31,18 @@ export default function App() {
     <main>
       <section className="hero section-wrap" id="home">
         <div className="hero-copy">
-          <p className="eyebrow"><span/> DIPLOMA COMPUTER ENGINEERING PORTFOLIO</p>
+          <p className="eyebrow"><span/> COMPUTER SCIENCE STUDENT · DEVELOPER</p>
           <h1>Hello, I'm<br/><span>Haritha Kongi.</span></h1>
-          <p className="hero-description">A Computer Engineering graduate with a passion for web development and building useful digital experiences. This portfolio brings together the projects and skills developed during my diploma journey.</p>
+          <p className="hero-description">I'm Haritha Kongi — a Computer Science student focused on full-stack development, clean user interfaces and practical software solutions. I enjoy turning ideas into reliable, usable products.</p>
           <div className="hero-actions"><a className="button button-primary" href="#projects">Explore my work <span>↗</span></a><a className="button button-light" href="#contact">Get in touch</a></div>
           <div className="hero-socials">{socialLinks.map(link => <a key={link.label} href={link.href} target="_blank" rel="noreferrer">{link.label} ↗</a>)}</div>
         </div>
-        <aside className="hero-note"><span className="note-index">01 / PROFILE</span><div className="monogram">H<span>K</span></div><h2>Learning through<br/>building.</h2><p>Practical projects. Strong fundamentals. Continuous growth.</p><span className="note-line"/></aside>
+        <aside className="hero-note"><span className="note-index">01 / PROFILE</span><div className="monogram">H<span>K</span></div><h2>Full-stack<br/>development.</h2><p>Learn. Build. Improve. Repeat.</p><span className="note-line"/></aside>
       </section>
 
       <section className="content-section section-wrap" id="about">
-        <div className="section-heading"><p className="eyebrow">A LITTLE INTRODUCTION</p><h2>About me</h2></div>
-        <div className="about-content"><p className="about-lead">I enjoy turning what I learn into something people can use.</p><p>I completed a Diploma in Computer Engineering at Vijaya Institute of Technology for Women (VITW), Vijayawada. Through coursework and hands-on practice, I explored programming fundamentals, web technologies, and application development. The projects below reflect that learning journey.</p></div>
+        <div className="section-heading"><p className="eyebrow">01 / ABOUT</p><h2>About me</h2></div>
+        <div className="about-content"><p className="about-lead">Curious by nature. Builder by practice.</p><p>I completed a Diploma in Computer Engineering at Vijaya Institute of Technology for Women (VITW), Vijayawada. My work spans frontend development, programming fundamentals and database-backed applications. I value thoughtful design, readable code and learning by building real projects.</p></div>
       </section>
 
       <section className="content-section section-wrap" id="skills">
