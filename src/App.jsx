@@ -125,7 +125,9 @@ export default function App() {
                 <div><div className="meter-row"><span>{project.status === 'Completed' ? 'Project status' : 'Development status'}</span><span>{progress}%</span></div><div className="bar"><span data-w={progress} style={{'--w':progress+'%'}} /></div></div>
                 <div className="tags">{project.tech.map(technology => <i key={technology}>{technology}</i>)}</div>
                 <div className="links">
-                  {project.demo && <a href={project.demo} target="_blank" rel="noreferrer">Live demo ↗</a>}
+                  {project.demo
+                    ? <a href={project.demo} target="_blank" rel="noreferrer">Live demo ↗</a>
+                    : project.source && <a href={project.source} target="_blank" rel="noreferrer">View project ↗</a>}
                   {project.source && <a href={project.source} target="_blank" rel="noreferrer">Source code ↗</a>}
                 </div>
               </article>;
