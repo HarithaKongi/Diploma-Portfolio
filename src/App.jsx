@@ -65,6 +65,7 @@ export default function App() {
       <section className="content-section section-wrap" id="education">
         <div className="section-heading"><p className="eyebrow">ACADEMIC BACKGROUND</p><h2>Education</h2></div>
         <article className="education-card"><div className="education-mark">01</div><div><p className="eyebrow">DIPLOMA · COMPUTER ENGINEERING</p><h3>Vijaya Institute of Technology for Women (VITW)</h3><p>Vijayawada, Andhra Pradesh</p></div><span className="education-status">Completed</span></article>
+        <article className="education-card"><div className="education-mark">02</div><div><p className="eyebrow">B.TECH · COMPUTER SCIENCE & ENGINEERING</p><h3>Rajeev Gandhi Memorial College of Engineering & Technology</h3><p>Nandyal, Andhra Pradesh</p></div><span className="education-status">In progress</span></article>
       </section>
 
       <section className="contact-section" id="contact"><div className="section-wrap contact-inner"><p className="eyebrow">LET'S CONNECT</p><h2>Have a project or opportunity<br/>in mind?</h2><p>I'd be happy to connect and learn about it.</p><a className="button button-primary" href="https://www.linkedin.com/in/haritha-kongi/" target="_blank" rel="noreferrer">Connect on LinkedIn ↗</a><div className="contact-socials">{socialLinks.map(link=><a key={link.label} href={link.href} target="_blank" rel="noreferrer">{link.label} ↗</a>)}</div></div></section>
