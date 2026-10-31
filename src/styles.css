@@ -36,3 +36,22 @@ button{font:inherit}
 @media(max-width:760px){.site-header{height:auto;min-height:70px;flex-wrap:wrap;padding:14px 0;gap:14px}.site-header nav{order:3;width:100%;justify-content:space-between;gap:8px}.site-header nav a{font-size:11px}.hero{padding:75px 0 65px;grid-template-columns:1fr;gap:35px;min-height:auto}.hero-note{min-height:270px}.content-section{padding:65px 0;grid-template-columns:1fr;gap:25px}.skills-grid{grid-template-columns:1fr}.filters{grid-column:1}.project-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.projects-heading{flex-direction:row;align-items:end}.project-count{margin:0 0 4px}.education-card{align-items:flex-start;flex-wrap:wrap}.education-status{margin-left:63px}.site-footer{flex-wrap:wrap;padding:22px 0}.contact-section{padding:65px 0}}
 @media(max-width:480px){.section-wrap,.site-header,.site-footer{width:calc(100% - 36px)}.hero h1{letter-spacing:-2.5px}.hero-description{font-size:14px}.project-grid{grid-template-columns:1fr}.projects-heading{display:block}.project-count{margin-top:18px}.site-header nav a{font-size:10px}.header-link{font-size:11px}.education-card{gap:13px;padding:18px}.education-card>div:nth-child(2){flex:1;min-width:180px}.education-status{margin-left:56px}.contact-inner h2{letter-spacing:-1px}}
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{scroll-behavior:auto!important;transition:none!important}}
+/* Subtle entrance and interaction animations */
+@keyframes fade-up{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fade-in{from{opacity:0}to{opacity:1}}
+@keyframes soft-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-7px)}}
+.site-header{animation:fade-in .65s ease both}
+.hero-copy{animation:fade-up .75s .08s cubic-bezier(.2,.7,.2,1) both}
+.hero-note{animation:fade-up .8s .22s cubic-bezier(.2,.7,.2,1) both}
+.monogram{animation:soft-float 6s ease-in-out 1s infinite}
+.content-section .section-heading,.about-content,.skills-grid,.education-card{animation:fade-up .7s both}
+.skill-card{transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+.skill-card:hover{transform:translateY(-4px);border-color:#b6d0c7;box-shadow:0 12px 28px rgba(35,61,69,.06)}
+.project-card{animation:fade-up .55s both;animation-delay:calc(var(--card-index,0)*55ms)}
+.project-card:nth-child(1){--card-index:1}.project-card:nth-child(2){--card-index:2}.project-card:nth-child(3){--card-index:3}.project-card:nth-child(4){--card-index:4}.project-card:nth-child(5){--card-index:5}.project-card:nth-child(6){--card-index:6}
+.filters button{transition:background .2s ease,color .2s ease,border-color .2s ease,transform .2s ease}
+.filters button:hover{transform:translateY(-2px)}
+.education-card{transition:transform .25s ease,border-color .25s ease}
+.education-card:hover{transform:translateX(4px);border-color:#b6d0c7}
+.contact-inner{animation:fade-up .7s both}
+@media(prefers-reduced-motion:reduce){.site-header,.hero-copy,.hero-note,.monogram,.content-section .section-heading,.about-content,.skills-grid,.education-card,.project-card,.contact-inner{animation:none!important}}
